@@ -7,9 +7,9 @@ const publicPath = 'dist';
 mix.setPublicPath(publicPath)
   .js(`${srcPath}/scripts/main.js`, 'scripts')
   .sass(`${srcPath}/styles/main.scss`, 'styles')
-  .copyDirectory(`${srcPath}/fonts`, `${publicPath}/fonts`)
-  .copyDirectory(`${srcPath}/icons`, `${publicPath}/icons`)
-  .copyDirectory(`${srcPath}/images`, `${publicPath}/images`)
+  // .copyDirectory(`${srcPath}/fonts`, `${publicPath}/fonts`)
+  // .copyDirectory(`${srcPath}/icons`, `${publicPath}/icons`)
+  // .copyDirectory(`${srcPath}/images`, `${publicPath}/images`)
   .options({
     processCssUrls: false,
     postCss: [

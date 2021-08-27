@@ -41,12 +41,15 @@ module.exports = {
     },
     borderRadius: {
       'none': '0',
-      'sm': '10px',
-      'input': '15px',
+      "xs": "12px",
+      "sm": "14px",
+      "s": "15px",
       DEFAULT: '20px',
-      'md': '50px',
-      'image': '270px',
-      // 'lg': '2rem',
+      "md": "18px",
+      "lg": "20px",
+      "xl": "28px",
+      "2xl": "40px",
+      "3xl": "68px",
       'full': '9999px',
     },
     boxShadow: {
@@ -55,6 +58,14 @@ module.exports = {
       btn: '0px 4px 10px rgba(0, 0, 0, 0.15)',
       inner: "inset 0px 4px 4px 0px rgba(0,0,0,0.25)",
       input: "0px 2px 24px 2px rgba(0, 0, 0, 0.15)"
+    },
+    container: {
+      '500': '500px',
+      '600': '600px',
+      '750': '750px',
+      '800': '800px',
+      '1100': '1100px',
+      '1440': '1440px',
     },
     screens: {
       xs: '500px',
@@ -105,13 +116,13 @@ module.exports = {
     fontSize: {
       "xs": "12px",
       "sm": "14px",
-      "s": "15px", 
-      "base": "16px", 
-      "md": "18px", 
+      "s": "15px",
+      "base": "16px",
+      "md": "18px",
       "lg": "20px",
       "xl": "28px",
-      "2xl": "40px", 
-      "3xl": "68px", 
+      "2xl": "40px",
+      "3xl": "68px",
       ...fontSizeUnit,
     },
     fontFamily: {
@@ -122,22 +133,19 @@ module.exports = {
       'circular-book': ['Circular Std Book', 'Arial', 'sans-serif'],
       'roboto': ['Roboto', 'Arial', 'sans-serif'],
     },
-    maxWidth: {
-      'none' : 'none',
-      ...defaultTheme.maxWidth,
-      ...spacingUnits,
-    },
-    minWidth: {
-      'none' : 'none',
-      ...defaultTheme.maxWidth,
-      ...spacingUnits,
-    },
     extend: {
-      backgroundImage: {
-        'gradient-orange-1': "linear-gradient(92deg, #FF2300 6.84%, #FF7200 94%)",
-        'gradient-orange-2': "linear-gradient(92deg, #FF7200 6.84%, #FF2300 94%)",
-        'gradient-gray-2': "linear-gradient(92deg, #46414d 6.84%, #46414d 94%)",
-     },
+      maxWidth: {
+        ...spacingUnits,
+      },
+      minWidth: {
+        ...spacingUnits,
+      },
+      maxHeight: {
+        ...spacingUnits,
+      },
+      minHeight: {
+        ...spacingUnits,
+      },
       zIndex: {
         'overlay': 90,
         'modal': 100,
@@ -172,6 +180,7 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
     require('./assets/tailwindcss/plugins/debug-screens'),
+    require('./assets/tailwindcss/plugins/container'),
   ],
   corePlugins: {
     container: false,

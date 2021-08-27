@@ -4,16 +4,25 @@
 
 /* base
 -------------------------------------------- */
-@import "./base/html";
-@import "./base/body";
 @import "./base/scrollbar";
 @import "./base/fonts";
+@import "./base/html";
+@import "./base/body";
+@import "./base/form";
 @import "./base/transitions";
 @import "./base/animations";
 
 /* vendors
 -------------------------------------------- */
 @import "~hamburgers/_sass/hamburgers/hamburgers";
+
+/* objects
+-------------------------------------------- */
+@import "./objects/button";
+@import "./objects/circle";
+@import "./objects/heading";
+@import "./objects/link";
+@import "./objects/surtitle";
 
 /* components
 -------------------------------------------- */

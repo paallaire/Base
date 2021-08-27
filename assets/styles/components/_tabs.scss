@@ -1,0 +1,9 @@
+[tabs] {
+    [tabs-content] {
+        @apply hidden;
+
+        &.is-active {
+            @apply block;
+        }
+    }
+}

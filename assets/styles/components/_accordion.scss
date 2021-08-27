@@ -1,0 +1,23 @@
+[accordion] {
+  &.is-active {
+    [accordion-content] {
+      @apply block;
+    }
+
+    [accordion-icon-open] {
+      @apply block;
+    }
+
+    [accordion-icon] {
+      @apply rotate-90;
+    }
+  }
+
+  [accordion-content] {
+    @apply hidden;
+  }
+
+  [accordion-icon] {
+    @apply transition duration-100 ease-in;
+  }
+}
