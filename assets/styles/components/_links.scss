@@ -1,0 +1,21 @@
+.link-back {
+    @apply flex items-center;
+
+    &:hover {
+
+        span {
+            @apply no-underline;
+        }
+
+    }
+
+    svg {
+        @apply w-4 mr-2 fill-current relative top-1px;
+    }
+
+    span {
+        @apply underline text-base; 
+        text-underline-offset: 5px;
+    }
+    
+}

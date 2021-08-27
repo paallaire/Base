@@ -1,0 +1,13 @@
+html {
+    scroll-behavior: smooth;
+
+    &.no-scroll {
+        @apply overflow-hidden;
+    }
+}
+
+body {
+    @apply bg-gray-2 font-circular overflow-x-hidden;
+}
+
+

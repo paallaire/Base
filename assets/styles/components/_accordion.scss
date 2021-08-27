@@ -1,0 +1,32 @@
+[accordion] {
+
+    &.is-active {
+
+        [accordion-button] {
+            @apply pb-5 #{!important};
+        }
+
+        [accordion-content] {
+            @apply block;
+        }
+
+        [accordion-icon-open] {
+            @apply block
+        }
+
+        [accordion-icon-close] {
+            @apply hidden
+        }
+
+
+    }
+
+    [accordion-content] {
+        @apply hidden;
+    }
+
+    [accordion-icon-open] {
+        @apply hidden
+    }
+
+}

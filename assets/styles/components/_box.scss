@@ -1,0 +1,13 @@
+.box {
+  @apply bg-white shadow rounded;
+}
+
+.box-surtitle {
+  @apply text-orange-1 text-base font-circular-bold uppercase inline-block;
+}
+
+
+.box-title {
+  @extend .h3;
+  @apply text-gray-1 leading-tight;
+}

@@ -1,0 +1,174 @@
+%t-btn-base {
+  @apply transition ease-out duration-100;
+}
+
+%btn {
+  @apply py-[11px] px-4 text-center font-circular-medium rounded-sm inline-block text-7;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg);}
+  50% { transform: rotate(180deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.btn-primary {
+  @extend %btn;
+  @extend %t-btn-base;
+  @apply bg-gradient-orange-1 text-white hover:bg-gradient-gray-2;
+}
+
+.btn-tab {
+  @extend %btn;
+  @apply bg-[#C4C4C4] bg-opacity-30 text-black/30 py-[12px] px-4 text-center rounded-[24px] inline-block hover:bg-opacity-100 font-roboto font-normal;
+
+  &.is-active {
+    @apply bg-gradient-orange-1 text-white pointer-events-none;
+  }
+
+}
+
+.btn-white {
+  @extend %btn;
+  @apply bg-white text-orange-1 hover:bg-gray-1 hover:text-white;
+}
+
+.btn-bordered {
+  @extend %btn;
+  @apply border border-solid text-7 border-gray-1/30 text-orange-1 hover:bg-gray-1 hover:text-white;
+}
+
+.btn-share {
+  @apply bg-white h-20 rounded-md px-10 py-2 inline-flex items-center shadow-btn transition ease-out duration-100;
+
+  &:hover {
+    @apply bg-gray-1 text-white;
+
+    .btn-share__icon,
+    .btn-share__label {
+      @apply text-white;
+    }
+
+  }
+
+  &__container {
+    @apply flex items-center;
+  }
+
+  &__label {
+    @apply mr-4 text-gray-1/40;
+  }
+
+  &__icon {
+    @apply text-gray-1;
+  }
+
+}
+
+.btn-molecule {
+  @apply inline-flex items-center justify-center w-32 h-32 relative;
+
+  &:before, 
+  &:after {
+    @apply absolute bg-gradient-orange-1 rounded-full;
+    content: '';
+    top: -2px;
+    left: -2px;
+    height: 170px;
+    width: 170px;
+  }
+
+  svg {
+    @apply relative z-10;
+  }
+
+  span {
+    @apply relative z-10 text-white text-sm font-circular-medium;    
+  }
+
+  &:hover {
+
+    &:before {
+      border-radius: 43% 45% 40% 42%;
+      animation: wave 10s infinite linear;
+    }
+    &:after {
+      border-radius: 43% 45% 40% 42%;
+      animation: wave 4s infinite linear;
+    }
+
+  }
+
+}
+
+.btn-molecule-large {
+  @apply inline-flex items-center justify-center w-40 h-40 relative;
+
+  &:before, 
+  &:after {
+    @apply absolute bg-gradient-orange-1 rounded-full;
+    content: '';
+    top: -2px;
+    left: -2px;
+    height: 208px;
+    width: 208px;
+  }
+
+  svg {
+    @apply relative z-10;
+  }
+
+  span {
+    @apply relative z-10 text-white text-sm font-circular-medium;
+  }
+
+  &:hover {
+
+    &:before {
+      border-radius: 43% 45% 40% 42%;
+      animation: wave 10s infinite linear;
+    }
+    &:after {
+      border-radius: 43% 45% 40% 42%;
+      animation: wave 4s infinite linear;
+    }
+
+  }
+
+}
+
+.btn-molecule-small {
+  @apply inline-flex items-center justify-center w-20 h-20 relative;
+
+  &:before, 
+  &:after {
+    @apply absolute bg-gradient-orange-1 rounded-full;
+    content: '';
+    top: -2px;
+    left: -2px;
+    height: 104px;
+    width: 104px;
+  }
+
+  svg {
+    @apply relative z-10;
+  }
+
+  span {
+    @apply relative z-10 text-white text-sm font-circular-medium;
+  }
+
+  &:hover {
+
+    &:before {
+      border-radius: 43% 45% 40% 42%;
+      animation: wave 10s infinite linear;
+    }
+    &:after {
+      border-radius: 43% 45% 40% 42%;
+      animation: wave 4s infinite linear;
+    }
+
+  }
+
+}

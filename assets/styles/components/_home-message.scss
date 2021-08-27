@@ -1,0 +1,30 @@
+
+[home-message] {
+
+    &.is-active {
+
+        [home-message-content] {
+            @apply block;
+        }
+
+        [home-message-button-active] {
+            @apply block;
+        }
+
+        [home-message-button-default] {
+            @apply hidden;
+        }
+
+    }
+
+}
+
+[home-message-button] {}
+
+[home-message-content] {
+    @apply hidden;
+}
+
+[home-message-button-active] {
+    @apply hidden;
+}

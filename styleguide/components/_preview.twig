@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/themes/mandelbrot/favicon.ico" type="image/ico">
+    <link media="all" rel="stylesheet" href="{{ '/styles/main.css'|path }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Preview Layout</title>
+</head>
+<body class="bg-gray-2">
+
+<div id="app" class="max-w-container m-auto">
+    {{ yield }}
+</div>
+
+<script src="{{ '/scripts/manifest.js'|path }}"></script>
+<script src="{{ '/scripts/vendor.js'|path }}"></script>
+<script src="{{ '/scripts/main.js'|path }}"></script>
+
+</body>
+</html>
