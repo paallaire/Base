@@ -12,7 +12,18 @@ mix.setPublicPath(publicPath)
   .copyDirectory(`${srcPath}/images`, `${publicPath}/images`)
   .options({
     processCssUrls: false,
-    postCss: [require('tailwindcss')('./tailwind.config.js')],
+    postCss: [
+      require('tailwindcss')('./tailwind.config.js'),
+      require('postcss-pxtorem')({
+        rootValue: 16,
+        unitPrecision: 5,
+        propList: ['font-size', 'letter-spacing'],
+        selectorBlackList: [],
+        replace: true,
+        mediaQuery: false,
+        minPixelValue: 0,
+      }),
+    ],
   })
   .extract()
   .version();
@@ -24,7 +35,7 @@ if (!mix.inProduction()) {
       'modules/**/*.php',
       'templates/**/*.twig',
       'translations/**/*.php',
-      `${publicPath}/**/*`,
+      `${publicPath}/**/*{js,vue,css}`,
     ],
   });
 }

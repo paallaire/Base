@@ -6,6 +6,10 @@
         },
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "[scss]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "cSpell.words": [
         "frctl",
         "laravel",

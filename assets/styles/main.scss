@@ -1,169 +1,29 @@
 @tailwind base;
 
-@import './_base';
-@import './_fonts';
-@import './_transitions';
+@import "./variables";
 
-/* hamburger
+/* base
 -------------------------------------------- */
-$hamburger-padding-x           : 0px;
-$hamburger-padding-y           : 0px;
-$hamburger-layer-width         : 22px;
-$hamburger-layer-height        : 2px;
-$hamburger-layer-spacing       : 4px;
-$hamburger-layer-color         : #ff4000;
-$hamburger-layer-border-radius : 0px;
-$hamburger-hover-opacity       : 1;
-$hamburger-active-layer-color  : $hamburger-layer-color;
-$hamburger-active-hover-opacity: $hamburger-hover-opacity;
+@import "./base/html";
+@import "./base/body";
+@import "./base/scrollbar";
+@import "./base/fonts";
+@import "./base/transitions";
+@import "./base/animations";
 
-$hamburger-types: (
-  slider,
-);
-
+/* vendors
+-------------------------------------------- */
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
+/* components
+-------------------------------------------- */
 @tailwind components;
 
-@import './components/container';
-@import './components/heading';
-@import './components/prose';
-@import './components/box';
-@import './components/button';
-@import './components/links';
-@import './components/article';
-@import './components/form';
-@import './components/accordion';
-@import './components/dropdown-menu';
-@import './components/tabs';
-@import './components/circle-progress';
-@import './components/go-to-top';
-@import './components/home-message';
-@import './components/home-box-lastest-news';
-@import './components/member-profil';
+/* utilities
+-------------------------------------------- */
 
 @tailwind utilities;
 
-@import './debug/_grid-visualizer';
-
-.prose-quote {
-  &:before {
-    content: '“';
-    @apply block text-orange-1 text-50 lg:text-70 h-6 lg:h-8 leading-[40px];
-  }
-}
-
-.swiper-pipeline {
-  @apply bg-repeat-x overflow-visible #{!important};
-  background-image: url('/dist/images/line-dotted.png');
-  background-position: 0 132px;
-
-  @screen lg {
-    @apply overflow-hidden #{!important};
-  }
-
-  .swiper-slide {
-      @apply h-48 w-48;
-
-      @screen lg {
-        @apply h-56 w-56;
-      }
-  }
-
-  .swiper-slide-active {
-    .molecule-slide {
-        @apply scale-[150%];
-
-        &:before,
-        &:after {
-            @apply scale-[155%];
-        }
-
-      &:before {
-        border-radius: 43% 45% 40% 42%;
-        animation: wave 10s infinite linear;
-      }
-
-      &:after {
-        border-radius: 43% 45% 40% 42%;
-        animation: wave 4s infinite linear;
-      }
-    }
-  }
-
-  .molecule-slide {
-    @apply inline-flex items-center justify-center w-30 h-30 relative transition ease-in duration-200 origin-center;
-
-    &:before,
-    &:after {
-      @apply absolute bg-gradient-orange-1 rounded-full;
-      content: '';
-      top: -2px;
-      left: -2px;
-      height: 154px;
-      width: 154px;
-    }
-
-    svg {
-      @apply relative z-10;
-    }
-
-    span {
-      @apply relative z-10 text-white text-sm font-circular-medium;
-    }
-  }
-}
-
-[data-swiper-content-index] {
-    @apply hidden;
-
-    &.is-active {
-        @apply block;
-    }
-}
-
-.btn-swiper-nav  {
-    @apply w-8 h-8 rounded-[6px] flex items-center justify-center bg-white shadow-btn;
-
-    &.swiper-button-disabled {
-        @apply opacity-30;
-
-        svg {
-            @apply text-gray-1;
-        }
-    
-    }
-
-    svg {
-        @apply fill-current text-orange-1;
-    }
-
-}
-
-
-@responsive {
-  .text-shadow {
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-}
-
-/* nav-mobile
+/* debug
 -------------------------------------------- */
-#nav-mobile {
-  @apply opacity-0 transform translate-x-full transition-opacity duration-200 ease-out fixed top-0 left-4 z-50 flex flex-col w-full bg-white px-8 shadow overflow-y-auto rounded-b;
-  width: calc(100vw - 40px);
-  max-height: calc(100vh - 40px);
-
-  &.is-active {
-      @apply opacity-100 translate-x-0;
-  }
-
-}
-
-#nav-overlay {
-  @apply opacity-0 transform transition-opacity duration-200 ease-out fixed top-0 left-0 z-40 bg-gray-2/60 h-screen w-full translate-x-full;
-
-  &.is-active {
-    @apply opacity-100 translate-x-0;
-}
-}
+@import "./debug/_grid-visualizer";

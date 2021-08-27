@@ -1,31 +1,28 @@
-/* eslint-disable func-names */
 const _ = require('lodash');
 
-module.exports = function ({ addUtilities, e, theme, variants }) {
+module.exports = function ({
+  addUtilities, e, theme, variants,
+}) {
   const container = theme('container', {});
-  const utilities = _.map(container, (value, name) => {
-    return {
-      [`.${e(`container-${name}`)}`]: {
-        maxWidth: `${value}`,
-        boxSizing: 'content-box',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        paddingLeft: theme('spacing.4'),
-        paddingRight: theme('spacing.4'),
+  const utilities = _.map(container, (value, name) => ({
+    [`.${e(`container-${name}`)}`]: {
+      maxWidth: `${value}`,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+    [`.${e(`container-${name}-px`)}`]: {
+      maxWidth: `${value}`,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      paddingLeft: theme('spacing.4'),
+      paddingRight: theme('spacing.4'),
 
-        [`@media (min-width: ${theme('screens.lg')})`]: {
-          paddingLeft: theme('spacing.6'),
-          paddingRight: theme('spacing.6')
-        }
+      [`@media (min-width: ${name}px)`]: {
+        paddingLeft: theme('spacing.0'),
+        paddingRight: theme('spacing.0'),
       },
-      [`.${e(`container-${name}-px-none`)}`]: {
-        maxWidth: `${value}`,
-        boxSizing: 'content-box',
-        marginLeft: 'auto',
-        marginRight: 'auto'
-      }
-    };
-  });
+    },
+  }));
 
   addUtilities(utilities, ['responsive']);
 };

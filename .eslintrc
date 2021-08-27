@@ -2,7 +2,7 @@
     "extends": ["airbnb-base"],
     "plugins": [],
     "rules": {
-      "prettier/prettier": "error",
+      //"prettier/prettier": "error",
       // "func-names": "warn",
       // "linebreak-style": ["error", "unix"],
       // "no-param-reassign": 0,
