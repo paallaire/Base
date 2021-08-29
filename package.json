@@ -26,16 +26,15 @@
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
-    "laravel-mix": "^6.0.28",
-    "sass": "^1.38.1",
-    "sass-loader": "^12.1.0",
-    "tailwind-config-viewer": "^1.6.2",
     "gulp": "^4.0.2",
     "gulp-imagemin": "=7.1.0",
     "gulp-rename": "^2.0.0",
-    "gulp-svg-sprite": "^1.5.0"
+    "gulp-svg-sprite": "^1.5.0",
+    "laravel-mix": "^6.0.28",
+    "sass": "^1.38.1",
+    "sass-loader": "^12.1.0",
+    "tailwind-config-viewer": "^1.6.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
