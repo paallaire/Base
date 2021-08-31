@@ -1,5 +1,6 @@
 const searchTermsDev = ['local', 'dev', 'stage', 'test'];
 
+const elHtml = document.querySelector('html');
 const lang = elHtml.getAttribute('lang') !== null ? elHtml.getAttribute('lang') : 'en';
 const isDev = searchTermsDev.some((el) => window.location.href.includes(el));
 

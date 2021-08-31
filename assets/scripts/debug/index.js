@@ -1,6 +1,6 @@
-import { isDev } from './helper';
+import { isDev } from '@debug/helper';
 
-export default function () {
+export default function debugInit() {
   if (isDev) {
     document.querySelector('body').classList.add('debug', 'debug-screens');
 

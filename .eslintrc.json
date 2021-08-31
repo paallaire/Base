@@ -10,6 +10,25 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "rules": {
+    "rules": {},
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    [
+                        "@components",
+                        "./assets/scripts/components",
+                    ],
+                    [
+                        "@debug",
+                        "./assets/scripts/debug"
+                    ]
+                ],
+                "extensions": [
+                    ".js",
+                    ".vue"
+                ]
+            }
+        }
     }
 }
