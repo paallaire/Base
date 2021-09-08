@@ -15,7 +15,7 @@ const publicPath = "dist";
 /* del
 -------------------------------------------- */
 function cleanTask(cb) {
-    del([publicPath]);
+    del('./dist/*/');
     cb();
 }
 

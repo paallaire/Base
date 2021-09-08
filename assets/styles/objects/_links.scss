@@ -1,0 +1,7 @@
+.link {
+    @apply inline-block cursor-pointer relative;
+
+    &:before {
+        content: "";
+    }
+}

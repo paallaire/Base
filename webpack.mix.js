@@ -40,7 +40,7 @@ if (!mix.inProduction()) {
       'modules/**/*.php',
       'templates/**/*.twig',
       'translations/**/*.php',
-      `${publicPath}/**/*{js,vue,css}`,
+      `${publicPath}/**/*.{js,vue,css}`,
     ],
   });
 }

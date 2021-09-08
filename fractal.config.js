@@ -23,6 +23,6 @@ fractal.web.set('builder.dest', `${__dirname}/styleguide-docs`);
 fractal.web.set('server.port', 4000);
 
 /* Specify a directory of static assets */
-fractal.web.set('static.path', `${__dirname}/web/dist`);
+fractal.web.set('static.path', `${__dirname}/dist`);
 
 // fractal.components.set('default.preview', '@preview');

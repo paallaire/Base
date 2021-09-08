@@ -1,4 +1,5 @@
 import { isDev } from '@debug/helper';
+import GridVisualizer from '@debug/GridVisualizer';
 
 export default function debugInit() {
   if (isDev) {

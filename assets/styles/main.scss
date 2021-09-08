@@ -18,11 +18,14 @@
 
 /* objects
 -------------------------------------------- */
-@import "./objects/button";
-@import "./objects/circle";
-@import "./objects/heading";
-@import "./objects/link";
-@import "./objects/surtitle";
+@import "./objects/buttons";
+@import "./objects/circles";
+@import "./objects/headings";
+@import "./objects/links-lib";
+@import "./objects/links";
+@import "./objects/surtitles";
+@import "./objects/loaders-lib";
+@import "./objects/loaders";
 
 /* components
 -------------------------------------------- */

@@ -1,4 +1,4 @@
-export default function () {
+export default function n() {
   const $html = document.querySelector('html');
   const $hamburger = document.querySelectorAll('.hamburger');
   const $navMobile = document.querySelector('#nav-mobile');
