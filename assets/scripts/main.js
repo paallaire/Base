@@ -6,7 +6,10 @@ import 'regenerator-runtime/runtime';
 import tabInit from '@components/tabs';
 import debugInit from '@debug/index';
 
+import scrollToInit from './modules/scrollTo';
+
 tabInit();
 debugInit();
+scrollToInit();
 
 

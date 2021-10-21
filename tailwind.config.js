@@ -9,17 +9,18 @@ module.exports = {
   mode: 'jit',
   purge: [
     './assets/**/*.js',
-    './assets/**/*.jsx',
-    './assets/**/*.ts',
-    './assets/**/*.vue',
-    './modules/**/*.php',
-    './modules/**/*.twig',
-    './templates/**/*.twig',
-    './templates/**/*.html',
-    './styleguide/**/*.twig',
-    './styleguide/**/*.html'
+    // './assets/**/*.jsx',
+    // './assets/**/*.ts',
+    // './assets/**/*.vue',
+    // './modules/**/*.php',
+    // './modules/**/*.twig',
+    // './templates/**/*.twig',
+    './public/**/*.html',
+    // './templates/**/*.html',
+    // './styleguide/**/*.twig',
+    // './styleguide/**/*.html'
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     colors: {
       transparent: 'transparent',

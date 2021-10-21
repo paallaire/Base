@@ -36,11 +36,19 @@ mix.setPublicPath(publicPath)
 if (!mix.inProduction()) {
   mix.sourceMaps().browserSync({
     // proxy: process.env.BASE_URL,
-    files: [
-      'modules/**/*.php',
-      'templates/**/*.twig',
-      'translations/**/*.php',
-      `${publicPath}/**/*.{js,vue,css}`,
-    ],
+    server: {
+      baseDir: "public",
+      routes: {
+        "/dist": "dist"
+      }
+    },
+    ghostMode: false,
+    // files: [
+    //   'public/**/*.twig',
+    //   'modules/**/*.php',
+    //   'templates/**/*.twig',
+    //   'translations/**/*.php',
+    //   `${publicPath}/**/*.{js,vue,css}`,
+    // ],
   });
 }

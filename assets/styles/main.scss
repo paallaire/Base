@@ -1,41 +1,40 @@
 @tailwind base;
-
-@import "./variables";
-
-/* base
--------------------------------------------- */
-@import "./base/scrollbar";
-@import "./base/fonts";
-@import "./base/html";
-@import "./base/body";
-@import "./base/form";
-@import "./base/transitions";
-@import "./base/animations";
-
-/* vendors
--------------------------------------------- */
-@import "~hamburgers/_sass/hamburgers/hamburgers";
-
-/* objects
--------------------------------------------- */
-@import "./objects/buttons";
-@import "./objects/circles";
-@import "./objects/headings";
-@import "./objects/links-lib";
-@import "./objects/links";
-@import "./objects/surtitles";
-@import "./objects/loaders-lib";
-@import "./objects/loaders";
-
-/* components
--------------------------------------------- */
 @tailwind components;
-
-/* utilities
--------------------------------------------- */
-
 @tailwind utilities;
 
-/* debug
--------------------------------------------- */
-@import "./debug/_grid-visualizer";
+// @import "./variables";
+
+// /* base
+// -------------------------------------------- */
+// @import "./base/scrollbar";
+// @import "./base/fonts";
+// @import "./base/html";
+// @import "./base/body";
+// @import "./base/form";
+// @import "./base/transitions";
+// @import "./base/animations";
+
+// /* vendors
+// -------------------------------------------- */
+// @import "~hamburgers/_sass/hamburgers/hamburgers";
+
+// /* objects
+// -------------------------------------------- */
+// @import "./objects/buttons";
+// @import "./objects/circles";
+// @import "./objects/headings";
+// @import "./objects/links-lib";
+// @import "./objects/links";
+// @import "./objects/surtitles";
+// @import "./objects/loaders-lib";
+// @import "./objects/loaders";
+
+// /* components
+// -------------------------------------------- */
+
+// /* utilities
+// -------------------------------------------- */
+
+// /* debug
+// -------------------------------------------- */
+// @import "./debug/_grid-visualizer";
