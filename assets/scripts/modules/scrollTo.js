@@ -12,6 +12,8 @@ export default function scrollToInit() {
 
 const actionScrollTo = (el) => {
 
+    console.log('hello');
+
     const id = el.getAttribute('href');
     const elScrollTo = document.querySelector(id);
 
