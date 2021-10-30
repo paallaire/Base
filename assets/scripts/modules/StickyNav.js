@@ -30,12 +30,9 @@ export default class StickyNav {
       }
 
       if (this.top > this.lastTop && this.top > 0) {
+        this.element.classList.remove('is-top');
         this.element.classList.add('is-fixed');
-      } else if (this.top < this.lastTop) {
-        // this.element.classList.remove('is-fixed');
       }
-    } else if (this.top <= 0) {
-      this.element.classList.add('is-top');
     }
 
     this.lastTop = document.documentElement.scrollTop;

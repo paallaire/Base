@@ -4,13 +4,13 @@
 
 // /* base
 // -------------------------------------------- */
-// @import "./base/scrollbar";
-// @import "./base/fonts";
-// @import "./base/html";
-// @import "./base/body";
-// @import "./base/form";
+@import "./base/scrollbar";
+@import "./base/fonts";
+@import "./base/html";
+@import "./base/body";
+@import "./base/form";
 @import "./base/transitions";
-// @import "./base/animations";
+@import "./base/animations";
 
 // /* vendors
 // -------------------------------------------- */
@@ -25,9 +25,14 @@
 @import "./objects/buttons";
 @import "./objects/links";
 @import "./objects/surtitles";
+@import "./objects/custom-cursor";
 
-// /* components
+/* components
 // -------------------------------------------- */
+
+/* header
+// -------------------------------------------- */
+@import "./layouts/header";
 
 // /* utilities
 // -------------------------------------------- */
@@ -43,4 +48,8 @@
 
 .sg-container-padding {
   @apply px-20 py-5;
+}
+
+#test {
+  @apply transition duration-1000 ease-in-out translate-y-50;
 }

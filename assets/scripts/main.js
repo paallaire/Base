@@ -5,7 +5,6 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 // components
-import svgHomeHeroInit from '@modules/svgHomeHero';
 import parallaxInit from '@modules/parallax';
 import StickyNav from '@modules/StickyNav';
 import swiperServicesInit from '@modules/swiperServices';
@@ -18,13 +17,12 @@ import lazyImagesInit from '@modules/lazyImages';
 import debugInit from '@debug/index';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // const siteNav = new StickyNav('#site-header');
-  // siteNav.init();
+  const siteNav = new StickyNav('#site-header');
+  siteNav.init();
 
-  // svgHomeHeroInit();
   // parallaxInit();
   // swiperServicesInit();
-  // cursorCustomInit();
+  cursorCustomInit();
   // navMobileInit();
   // aosInit();
   // lazyImagesInit();

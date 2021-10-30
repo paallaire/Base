@@ -1,12 +1,5 @@
-.swiper-activities {
-  @apply overflow-visible #{!important};
-
-  .swiper-slide {
-    @apply h-auto;
-    align-self: stretch;
-  }
-}
-
+/* nav
+-------------------------------------------- */
 .swiper-button-prev-custom,
 .swiper-button-next-custom {
   @apply transition duration-100 ease-in hover:text-pink-1;
@@ -25,5 +18,16 @@
 
   &.swiper-button-disabled {
     @apply opacity-50 pointer-events-none;
+  }
+}
+
+/* swiper-activities
+-------------------------------------------- */
+.swiper-activities {
+  @apply overflow-visible #{!important};
+
+  .swiper-slide {
+    @apply h-auto;
+    align-self: stretch;
   }
 }

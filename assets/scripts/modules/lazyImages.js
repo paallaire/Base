@@ -22,7 +22,7 @@ export default function lazyImagesInit() {
         img.classList.remove('lazy');
       }
     });
-    if (lazyloadImages.length == 0) {
+    if (lazyloadImages.length === 0) {
       document.removeEventListener('scroll', lazyload);
       window.removeEventListener('resize', lazyload);
       window.removeEventListener('orientationChange', lazyload);

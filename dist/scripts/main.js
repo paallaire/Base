@@ -160,15 +160,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_stable__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_svgHomeHero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @modules/svgHomeHero */ "./assets/scripts/modules/svgHomeHero.js");
-/* harmony import */ var _modules_parallax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @modules/parallax */ "./assets/scripts/modules/parallax.js");
-/* harmony import */ var _modules_StickyNav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @modules/StickyNav */ "./assets/scripts/modules/StickyNav.js");
-/* harmony import */ var _modules_swiperServices__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @modules/swiperServices */ "./assets/scripts/modules/swiperServices.js");
-/* harmony import */ var _modules_cursorCustom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @modules/cursorCustom */ "./assets/scripts/modules/cursorCustom.js");
-/* harmony import */ var _modules_navMobile__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @modules/navMobile */ "./assets/scripts/modules/navMobile.js");
-/* harmony import */ var _modules_animationOnScroll__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @modules/animationOnScroll */ "./assets/scripts/modules/animationOnScroll.js");
-/* harmony import */ var _modules_lazyImages__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @modules/lazyImages */ "./assets/scripts/modules/lazyImages.js");
-/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
+/* harmony import */ var _modules_parallax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @modules/parallax */ "./assets/scripts/modules/parallax.js");
+/* harmony import */ var _modules_StickyNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @modules/StickyNav */ "./assets/scripts/modules/StickyNav.js");
+/* harmony import */ var _modules_swiperServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @modules/swiperServices */ "./assets/scripts/modules/swiperServices.js");
+/* harmony import */ var _modules_cursorCustom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @modules/cursorCustom */ "./assets/scripts/modules/cursorCustom.js");
+/* harmony import */ var _modules_navMobile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @modules/navMobile */ "./assets/scripts/modules/navMobile.js");
+/* harmony import */ var _modules_animationOnScroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @modules/animationOnScroll */ "./assets/scripts/modules/animationOnScroll.js");
+/* harmony import */ var _modules_lazyImages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @modules/lazyImages */ "./assets/scripts/modules/lazyImages.js");
+/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
 /* eslint-disable import/no-extraneous-dependencies */
 // polyfill only stable `core-js` features - ES and web standards:
 
@@ -180,17 +179,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
  // debug
 
 
-document.addEventListener('DOMContentLoaded', function () {// const siteNav = new StickyNav('#site-header');
-  // siteNav.init();
-  // svgHomeHeroInit();
-  // parallaxInit();
+document.addEventListener('DOMContentLoaded', function () {
+  var siteNav = new _modules_StickyNav__WEBPACK_IMPORTED_MODULE_3__["default"]('#site-header');
+  siteNav.init(); // parallaxInit();
   // swiperServicesInit();
-  // cursorCustomInit();
-  // navMobileInit();
+
+  (0,_modules_cursorCustom__WEBPACK_IMPORTED_MODULE_5__["default"])(); // navMobileInit();
   // aosInit();
   // lazyImagesInit();
   // debugInit();
@@ -256,11 +253,9 @@ var StickyNav = /*#__PURE__*/function () {
         }
 
         if (this.top > this.lastTop && this.top > 0) {
+          this.element.classList.remove('is-top');
           this.element.classList.add('is-fixed');
-        } else if (this.top < this.lastTop) {// this.element.classList.remove('is-fixed');
         }
-      } else if (this.top <= 0) {
-        this.element.classList.add('is-top');
       }
 
       this.lastTop = document.documentElement.scrollTop;
@@ -344,28 +339,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": function() { return /* binding */ cursorCustomInit; }
 /* harmony export */ });
 function cursorCustomInit() {
-  var cursor = document.querySelector('.cursor');
-  var a = document.querySelectorAll('a, button');
-  document.addEventListener('mousemove', function (e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    cursor.style.left = "".concat(x, "px");
-    cursor.style.top = "".concat(y, "px");
-  });
-  document.addEventListener('mousedown', function () {
-    cursor.classList.add('click');
-  });
-  document.addEventListener('mouseup', function () {
-    cursor.classList.remove('click');
-  });
-  a.forEach(function (item) {
-    item.addEventListener('mouseover', function () {
-      cursor.classList.add('hover');
+  var cursor = document.querySelector('[custom-cursor]');
+  var links = document.querySelectorAll('a, button');
+
+  if (links && cursor) {
+    document.addEventListener('mousemove', function (e) {
+      var x = e.clientX;
+      var y = e.clientY;
+      cursor.style.left = "".concat(x, "px");
+      cursor.style.top = "".concat(y, "px");
     });
-    item.addEventListener('mouseleave', function () {
-      cursor.classList.remove('hover');
+    document.addEventListener('mousedown', function () {
+      cursor.classList.add('is-click');
     });
-  });
+    document.addEventListener('mouseup', function () {
+      cursor.classList.remove('is-click');
+    });
+    links.forEach(function (item) {
+      item.addEventListener('mouseover', function () {
+        cursor.classList.add('is-hover');
+      });
+      item.addEventListener('mouseleave', function () {
+        cursor.classList.remove('is-hover');
+      });
+    });
+  }
 }
 
 /***/ }),
@@ -405,7 +403,7 @@ function lazyImagesInit() {
       }
     });
 
-    if (lazyloadImages.length == 0) {
+    if (lazyloadImages.length === 0) {
       document.removeEventListener('scroll', lazyload);
       window.removeEventListener('resize', lazyload);
       window.removeEventListener('orientationChange', lazyload);
@@ -501,35 +499,6 @@ function parallaxInit() {
       horizontal: false
     });
   }
-}
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/svgHomeHero.js":
-/*!***********************************************!*\
-  !*** ./assets/scripts/modules/svgHomeHero.js ***!
-  \***********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ svgHomeHeroInit; }
-/* harmony export */ });
-function svgHomeHeroInit() {
-  var svgCircles = document.querySelectorAll('.svg-circle-follow');
-  svgCircles.forEach(function (element) {
-    var animateMotion = element.querySelector('animateMotion');
-    var begin = animateMotion.getAttribute('begin');
-
-    if (begin) {
-      var duration = parseInt(begin, 10) * 1000;
-      setTimeout(function () {
-        element.classList.add('is-active');
-      }, duration);
-    } else {
-      element.classList.add('is-active');
-    }
-  });
 }
 
 /***/ }),
