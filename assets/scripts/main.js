@@ -1,15 +1,33 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 // polyfill only stable `core-js` features - ES and web standards:
 import 'core-js/stable';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'regenerator-runtime/runtime';
 
-import tabInit from '@components/tabs';
+// components
+import svgHomeHeroInit from '@modules/svgHomeHero';
+import parallaxInit from '@modules/parallax';
+import StickyNav from '@modules/StickyNav';
+import swiperServicesInit from '@modules/swiperServices';
+import cursorCustomInit from '@modules/cursorCustom';
+import navMobileInit from '@modules/navMobile';
+import aosInit from '@modules/animationOnScroll';
+import lazyImagesInit from '@modules/lazyImages';
+
+// debug
 import debugInit from '@debug/index';
 
-import scrollToInit from './modules/scrollTo';
+document.addEventListener('DOMContentLoaded', () => {
+  // const siteNav = new StickyNav('#site-header');
+  // siteNav.init();
 
-tabInit();
-debugInit();
-scrollToInit();
+  // svgHomeHeroInit();
+  // parallaxInit();
+  // swiperServicesInit();
+  // cursorCustomInit();
+  // navMobileInit();
+  // aosInit();
+  // lazyImagesInit();
 
-
+  // debugInit();
+});

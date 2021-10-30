@@ -5,7 +5,7 @@ const srcPath = 'assets';
 const publicPath = 'dist';
 
 mix.alias({
-  '@components': './assets/scripts/components',
+  '@modules': './assets/scripts/modules',
   '@debug': './assets/scripts/debug',
 });
 
@@ -33,22 +33,30 @@ mix.setPublicPath(publicPath)
   .extract()
   .version();
 
-if (!mix.inProduction()) {
-  mix.sourceMaps().browserSync({
-    // proxy: process.env.BASE_URL,
-    server: {
-      baseDir: "public",
-      routes: {
-        "/dist": "dist"
-      }
-    },
-    ghostMode: false,
-    // files: [
-    //   'public/**/*.twig',
-    //   'modules/**/*.php',
-    //   'templates/**/*.twig',
-    //   'translations/**/*.php',
-    //   `${publicPath}/**/*.{js,vue,css}`,
-    // ],
-  });
-}
+// if (!mix.inProduction()) {
+//   mix.sourceMaps().browserSync({
+//     // proxy: process.env.BASE_URL,
+//     server: {
+//       baseDir: 'public',
+//       routes: {
+//         '/dist': 'dist',
+//       },
+//     },
+//     ghostMode: {
+//       clicks: false,
+//       scroll: true,
+//       forms: {
+//         submit: false,
+//         inputs: false,
+//         toggles: false,
+//       },
+//     },
+//     files: [
+//       'public/**/*.twig',
+//       'modules/**/*.php',
+//       'templates/**/*.twig',
+//       'translations/**/*.php',
+//       `${publicPath}/**/*.{js,vue,css}`,
+//     ],
+//   });
+// }

@@ -1,29 +1,29 @@
 .swiper-activities {
-    @apply overflow-visible #{!important};
+  @apply overflow-visible #{!important};
 
-    .swiper-slide {
-        @apply h-auto;
-        align-self: stretch;
-    }
+  .swiper-slide {
+    @apply h-auto;
+    align-self: stretch;
+  }
 }
 
 .swiper-button-prev-custom,
 .swiper-button-next-custom {
-    @apply transition duration-100 ease-in hover:text-pink-1;
+  @apply transition duration-100 ease-in hover:text-pink-1;
+
+  .arrow {
+    @apply text-white transition duration-100 ease-in;
+  }
+
+  &:hover {
+    @apply text-pink-1;
 
     .arrow {
-        @apply text-white transition duration-100 ease-in;
+      @apply text-gray-1;
     }
+  }
 
-    &:hover {
-        @apply text-pink-1;
-
-        .arrow {
-            @apply text-gray-1;
-        }
-    }
-
-    &.swiper-button-disabled {
-        @apply opacity-50 pointer-events-none;
-    }
+  &.swiper-button-disabled {
+    @apply opacity-50 pointer-events-none;
+  }
 }

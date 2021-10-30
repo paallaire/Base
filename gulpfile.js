@@ -15,54 +15,54 @@ const publicPath = "dist";
 /* del
 -------------------------------------------- */
 function cleanTask(cb) {
-    del('./dist/*/');
-    cb();
+  del('./dist/*/');
+  cb();
 }
 
 /* imagemin
 -------------------------------------------- */
 const imageminOptions =
-    ([
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.mozjpeg({ quality: 75, progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-            plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-        }),
-    ],
-    {
-        verbose: true,
-    });
+  ([
+    imagemin.gifsicle({ interlaced: true }),
+    imagemin.mozjpeg({ quality: 75, progressive: true }),
+    imagemin.optipng({ optimizationLevel: 5 }),
+    imagemin.svgo({
+      plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+    }),
+  ],
+  {
+    verbose: true,
+  });
 
 function imagesTask() {
-    return src(`${srcPath}/images/**/*`)
-        .pipe(imagemin(imageminOptions))
-        .pipe(dest(`${publicPath}/images`));
+  return src(`${srcPath}/images/**/*`)
+    .pipe(imagemin(imageminOptions))
+    .pipe(dest(`${publicPath}/images`));
 }
 
 /* fonts
 -------------------------------------------- */
 function fontsTask() {
-    return src("**/*", { cwd: `${srcPath}/fonts` }).pipe(
-        dest(`${publicPath}/fonts`)
-    );
+  return src("**/*", { cwd: `${srcPath}/fonts` }).pipe(
+    dest(`${publicPath}/fonts`)
+  );
 }
 
 /* icons
 -------------------------------------------- */
 const config = {
-    mode: {
-        defs: {
-            dest: "",
-            sprite: "sprite.svg",
-        },
+  mode: {
+    defs: {
+      dest: "",
+      sprite: "sprite.svg",
     },
+  },
 };
 
 function iconsTask() {
-    return src("**/*.svg", { cwd: "./assets/icons" })
-        .pipe(svgSprite(config))
-        .pipe(dest("./public/dist/icons"));
+  return src("**/*.svg", { cwd: "./assets/icons" })
+    .pipe(svgSprite(config))
+    .pipe(dest("./public/dist/icons"));
 }
 
 /* icomoonSvgTask
@@ -84,9 +84,9 @@ function iconsTask() {
 /* watch
 -------------------------------------------- */
 function watchTask(cb) {
-    watch("assets/images/**/*", imagesTask);
-    watch("assets/fonts/**/*", fontsTask);
-    cb();
+  watch("assets/images/**/*", imagesTask);
+  watch("assets/fonts/**/*", fontsTask);
+  cb();
 }
 
 /* env
@@ -100,16 +100,16 @@ function watchTask(cb) {
 /* tasks
 -------------------------------------------- */
 exports.default = series(
-    cleanTask,
-    imagesTask,
-    fontsTask,
+  cleanTask,
+  imagesTask,
+  fontsTask,
 );
 
 exports.watch = series(
-    cleanTask,
-    imagesTask,
-    fontsTask,
-    watchTask
+  cleanTask,
+  imagesTask,
+  fontsTask,
+  watchTask
 );
 
 exports.clean = cleanTask;

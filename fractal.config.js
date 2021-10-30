@@ -9,7 +9,7 @@ fractal.components.engine(twigAdapter);
 fractal.components.set('ext', '.twig');
 
 /* Set the title of the project */
-fractal.set('project.title', 'Alethia');
+fractal.set('project.title', 'Base');
 
 /* Tell Fractal where the components will live */
 fractal.components.set('path', `${__dirname}/styleguide/components`);

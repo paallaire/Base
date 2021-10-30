@@ -16,8 +16,8 @@
             "alias": {
                 "map": [
                     [
-                        "@components",
-                        "./assets/scripts/components",
+                        "@modules",
+                        "./assets/scripts/modules"
                     ],
                     [
                         "@debug",

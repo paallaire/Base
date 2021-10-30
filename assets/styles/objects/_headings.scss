@@ -1,34 +1,52 @@
 /* heading
 -------------------------------------------- */
+%heading {
+  @apply font-montserrat leading-none uppercase;
+}
 
 .h1 {
-    @screen md {
-        @apply text-40;
-    }
+  @extend %heading;
+}
 
-    @screen lg {
-        @apply text-50;
-    }
+.h1 {
+  @extend %heading;
+  @apply font-bold text-30;
+  @apply md:text-44;
 }
 
 .h2 {
-    @screen md {
-        @apply text-[55px];
-    }
-
-    @screen lg {
-        @apply text-[65px];
-    }
+  @extend %heading;
+  @apply font-normal text-22;
+  @apply md:text-40;
 }
 
 .h3 {
+  @extend %heading;
+  @apply font-bold text-18;
+  @apply md:text-32;
 }
 
 .h4 {
+  @extend %heading;
+  @apply font-bold text-12;
+  @apply md:text-16;
 }
 
 .h5 {
+  @extend %heading;
+  @apply font-bold text-10;
+  @apply md:text-12;
 }
 
 .h6 {
+  @extend %heading;
+  @apply font-bold;
+  @apply md:text-9;
+}
+
+/* sg
+-------------------------------------------- */
+.sg-title {
+  @extend %heading;
+  @apply text-10 font-bold my-4;
 }

@@ -1,7 +1,27 @@
-.link {
-    @apply inline-block cursor-pointer relative;
+/* links
+-------------------------------------------- */
+%link {
+  @extend %transition-basic;
+  @apply inline-flex items-center font-bold;
+}
 
-    &:before {
-        content: "";
-    }
+.link-blue {
+  @extend %transition-basic;
+  @extend %link;
+  @apply text-blue-1;
+  @apply hover:underline;
+}
+
+.link-orange {
+  @extend %transition-basic;
+  @extend %link;
+  @apply text-orange-1;
+  @apply hover:underline;
+}
+
+.link-green {
+  @extend %transition-basic;
+  @extend %link;
+  @apply text-green-1;
+  @apply hover:underline;
 }

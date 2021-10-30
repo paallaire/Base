@@ -1,9 +1,9 @@
 [tabs] {
-    [tabs-content] {
-        @apply hidden;
+  [tabs-content] {
+    @apply hidden;
 
-        &.is-active {
-            @apply block;
-        }
+    &.is-active {
+      @apply block;
     }
+  }
 }

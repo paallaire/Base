@@ -1,6 +1,6 @@
 // tailwind.config.js
-const colors = require('tailwindcss/colors')
-const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 const spacingUnits = require('./assets/tailwindcss/units/generateUnitByMultiplicator')(5, 200);
 const fontSizeUnit = require('./assets/tailwindcss/units/generateUnitByMultiplicator')(2, 75);
@@ -9,74 +9,80 @@ module.exports = {
   mode: 'jit',
   purge: [
     './assets/**/*.js',
-    // './assets/**/*.jsx',
-    // './assets/**/*.ts',
-    // './assets/**/*.vue',
-    // './modules/**/*.php',
-    // './modules/**/*.twig',
-    // './templates/**/*.twig',
-    './public/**/*.html',
-    // './templates/**/*.html',
-    // './styleguide/**/*.twig',
-    // './styleguide/**/*.html'
+    './assets/**/*.jsx',
+    './assets/**/*.ts',
+    './assets/**/*.vue',
+    './modules/**/*.php',
+    './modules/**/*.twig',
+    './templates/**/*.twig',
+    './templates/**/*.html',
+    './styleguide/**/*.twig',
+    './styleguide/**/*.html',
   ],
-  darkMode: false,
+  darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
       black: colors.black,
       white: colors.white,
-      orange: {
-        1: '#ff4000',
-        2: '#ff7200'
-      },
       gray: {
-        1: '#46414d',
-        2: '#f5f2f0',
-        3: '#E5E5E5'
+        1: '#f9f8f4',
+        2: '#03030e',
+        3: '#818187',
+        4: '#F9F8F4',
+        5: '#1A1A24',
+      },
+      blue: {
+        1: '#4e95ff',
       },
       red: {
-        1: '#ff0000'
-      }
+        1: '#EA4D5F',
+      },
+      green: {
+        1: '#18aa64',
+      },
+      orange: {
+        1: '#fd8e3d',
+        2: '#F93506',
+      },
     },
     borderRadius: {
-      'none': '0',
-      "xs": "12px",
-      "sm": "14px",
-      "s": "15px",
-      DEFAULT: '20px',
-      "md": "18px",
-      "lg": "20px",
-      "xl": "28px",
-      "2xl": "40px",
-      "3xl": "68px",
-      'full': '9999px',
-    },
-    boxShadow: {
-      none: 'none',
-      DEFAULT: "0px 4px 25px 0px rgba(0,0,0,0.15)",
-      btn: '0px 4px 10px rgba(0, 0, 0, 0.15)',
-      inner: "inset 0px 4px 4px 0px rgba(0,0,0,0.25)",
-      input: "0px 2px 24px 2px rgba(0, 0, 0, 0.15)"
+      none: '0',
+      base: '8px',
+      full: '9999px',
     },
     container: {
-      '500': '500px',
-      '600': '600px',
-      '750': '750px',
-      '800': '800px',
-      '1100': '1100px',
-      '1440': '1440px',
+      860: '860px',
+      1000: '1000px',
+      1060: '1060px',
+      1100: '1100px',
+      1280: '1280px',
+      1360: '1360px',
+      1380: '1380px',
+      1660: '1660px',
+      1920: '1920px',
     },
     screens: {
-      xs: '500px',
+      xs: '400px',
+      sm: '500px',
       md: '768px',
       lg: '1024px',
-      xl: '1440px',
-      '2xl': '1920px',
+      xl: '1280px',
+      '2xl': '1440px',
+      '3xl': '1920px',
+    },
+    lineHeight: {
+      none: '1',
+      tight: '1.2',
+      snug: '1.3',
+      normal: '1.5',
+      relaxed: '1.625',
+      loose: '2',
     },
     spacing: {
       0: '0',
+      gutter: '10px',
       '1px': '1px',
       '2px': '2px',
       '3px': '3px',
@@ -115,26 +121,24 @@ module.exports = {
       ...defaultTheme.width,
     },
     fontSize: {
-      "xs": "12px",
-      "sm": "14px",
-      "s": "15px",
-      "base": "16px",
-      "md": "18px",
-      "lg": "20px",
-      "xl": "28px",
-      "2xl": "40px",
-      "3xl": "68px",
+      base: '16px',
+      md: '18px',
+      lg: '20px',
+      xl: '48px',
       ...fontSizeUnit,
     },
     fontFamily: {
-      'circular': ['Circular Std Book', 'Arial', 'sans-serif'],
-      'circular-black': ['Circular Std Black', 'Arial', 'sans-serif'],
-      'circular-bold': ['Circular Std Bold', 'Arial', 'sans-serif'],
-      'circular-medium': ['Circular Std Medium', 'Arial', 'sans-serif'],
-      'circular-book': ['Circular Std Book', 'Arial', 'sans-serif'],
-      'roboto': ['Roboto', 'Arial', 'sans-serif'],
+      work: ['Work Sans', 'sans-serif'],
+      montserrat: ['Montserrat', 'sans-serif'],
+    },
+    fill: {
+      current: 'currentColor',
+      transparent: 'transparent',
     },
     extend: {
+      backgroundImage: {
+        hero: 'linear-gradient(90deg, rgba(100,172,244,1) 0%, rgba(37,27,150,1) 60%, rgba(135,27,165,1) 100%);',
+      },
       maxWidth: {
         ...spacingUnits,
       },
@@ -148,32 +152,38 @@ module.exports = {
         ...spacingUnits,
       },
       zIndex: {
-        'overlay': 90,
-        'modal': 100,
-        'nav-mobile': 110,
+        '-1': '-1',
+        1: 1,
+        10: 10,
+        20: 20,
+        30: 30,
+        40: 40,
+        50: 50,
+        60: 60,
+        70: 70,
+        80: 80,
+        90: 90,
+        100: 100,
+        overlay: 200,
+        modal: 201,
       },
-      width: {},
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: null,
-            tracking: '0',
-            lineHeight: '1.4',
-            color: '#46414D',
+            color: '#03030E',
+            maxWidth: 'none',
             a: {
-              color: '#fff',
+              color: '#03030E',
               textDecoration: 'underline',
               '&:hover': {
-                color: '#628395',
-              }
+                color: '#03030E',
+                textDecoration: 'none',
+              },
             },
-          }
-        }
-      }
-    }
-  },
-  variants: {
-    extend: {},
+          },
+        },
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
@@ -182,9 +192,36 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('./assets/tailwindcss/plugins/debug-screens'),
     require('./assets/tailwindcss/plugins/container'),
+    require('tailwind-css-variables')(
+      {
+        colors: false,
+        screens: 'screen',
+        fontFamily: false,
+        fontSize: false,
+        fontWeight: false,
+        lineHeight: false,
+        letterSpacing: false,
+        backgroundSize: false,
+        borderWidth: false,
+        borderRadius: false,
+        width: false,
+        height: false,
+        minWidth: false,
+        minHeight: false,
+        maxWidth: false,
+        maxHeight: false,
+        padding: false,
+        margin: false,
+        boxShadow: false,
+        zIndex: false,
+        opacity: false,
+      },
+      {
+        postcssEachVariables: true,
+      },
+    ),
   ],
   corePlugins: {
     container: false,
   },
 };
-
