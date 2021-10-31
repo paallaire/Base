@@ -14,6 +14,7 @@ import aosInit from '@modules/animationOnScroll';
 import lazyImagesInit from '@modules/lazyImages';
 import Accordions from '@modules/Accordions';
 import Tabs from '@modules/Tabs';
+import modalInit from '@modules/modal';
 
 // debug
 import debugInit from '@debug/index';
@@ -30,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const tabsBase = new Tabs('[tabs="theme-base"]');
   tabsBase.init();
+
+  modalInit();
 
   // tabsInit();
 

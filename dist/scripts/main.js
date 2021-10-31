@@ -169,11 +169,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_lazyImages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @modules/lazyImages */ "./assets/scripts/modules/lazyImages.js");
 /* harmony import */ var _modules_Accordions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @modules/Accordions */ "./assets/scripts/modules/Accordions.js");
 /* harmony import */ var _modules_Tabs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @modules/Tabs */ "./assets/scripts/modules/Tabs.js");
-/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @modules/modal */ "./assets/scripts/modules/modal.js");
+/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
 /* eslint-disable import/no-extraneous-dependencies */
 // polyfill only stable `core-js` features - ES and web standards:
 
  // components
+
 
 
 
@@ -194,7 +196,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var accordionGreen = new _modules_Accordions__WEBPACK_IMPORTED_MODULE_9__["default"]('[accordion="theme-green"]');
   accordionGreen.init();
   var tabsBase = new _modules_Tabs__WEBPACK_IMPORTED_MODULE_10__["default"]('[tabs="theme-base"]');
-  tabsBase.init(); // tabsInit();
+  tabsBase.init();
+  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_11__["default"])(); // tabsInit();
   // parallaxInit();
   // swiperServicesInit();
 
@@ -638,6 +641,82 @@ function lazyImagesInit() {
     window.addEventListener('resize', lazyload);
     window.addEventListener('orientationChange', lazyload);
   }
+}
+
+/***/ }),
+
+/***/ "./assets/scripts/modules/modal.js":
+/*!*****************************************!*\
+  !*** ./assets/scripts/modules/modal.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ modalInit; }
+/* harmony export */ });
+function modalInit() {
+  /* variables
+  -------------------------------------------- */
+  var elHtml = document.querySelector('html');
+  var elModals = document.querySelectorAll('[modal]');
+  var elButtonsTrigger = document.querySelectorAll('[modal-trigger]');
+  var elButtonsClose = document.querySelectorAll('[modal-close]');
+  var elModalActive = null;
+  var elModalOverlay = null;
+  var awaitAnimation = false;
+  /* function
+  -------------------------------------------- */
+
+  function hideModals() {
+    elModalActive = null;
+    elModalOverlay = null;
+    elModals.forEach(function (el, index) {
+      el.classList.remove('is-active');
+      el.classList.remove('animation-in');
+      el.classList.remove('animation-out');
+    });
+  }
+  /* init
+  -------------------------------------------- */
+
+
+  elButtonsTrigger.forEach(function (el, index) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var id = el.getAttribute('href');
+
+      if (!awaitAnimation) {
+        hideModals();
+        elModalActive = document.querySelector("#".concat(id));
+        elModalOverlay = elModalActive.querySelector('[modal-overlay]');
+        elModalActive.classList.add('is-active');
+        elHtml.classList.add('no-scroll');
+        setTimeout(function () {
+          elModalActive.classList.add('animation-in');
+        }, 1);
+      }
+    });
+  });
+  elButtonsClose.forEach(function (el, index) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      elModalActive.classList.add('animation-out'); // const animationOut = (e) => {
+      //   console.log('e:', e);
+      //   if (e.propertyName === 'background-color') {
+      //     console.log('animationOut:', e.propertyName);
+      //   }
+      //   elModalOverlay.removeEventListener('transitionend', animationOut);
+      // };
+      // elModalOverlay.addEventListener('transitionend', animationOut, false);
+
+      setTimeout(function () {
+        elHtml.classList.remove('no-scroll');
+        awaitAnimation = false;
+        hideModals();
+      }, 200);
+    });
+  });
 }
 
 /***/ }),
