@@ -167,11 +167,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_navMobile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @modules/navMobile */ "./assets/scripts/modules/navMobile.js");
 /* harmony import */ var _modules_animationOnScroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @modules/animationOnScroll */ "./assets/scripts/modules/animationOnScroll.js");
 /* harmony import */ var _modules_lazyImages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @modules/lazyImages */ "./assets/scripts/modules/lazyImages.js");
-/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
+/* harmony import */ var _modules_Accordions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @modules/Accordions */ "./assets/scripts/modules/Accordions.js");
+/* harmony import */ var _modules_Tabs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @modules/Tabs */ "./assets/scripts/modules/Tabs.js");
+/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
 /* eslint-disable import/no-extraneous-dependencies */
 // polyfill only stable `core-js` features - ES and web standards:
 
  // components
+
+
 
 
 
@@ -184,7 +188,14 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function () {
   var siteNav = new _modules_StickyNav__WEBPACK_IMPORTED_MODULE_3__["default"]('#site-header');
-  siteNav.init(); // parallaxInit();
+  siteNav.init();
+  var accordionBase = new _modules_Accordions__WEBPACK_IMPORTED_MODULE_9__["default"]('[accordion="theme-base"]');
+  accordionBase.init();
+  var accordionGreen = new _modules_Accordions__WEBPACK_IMPORTED_MODULE_9__["default"]('[accordion="theme-green"]');
+  accordionGreen.init();
+  var tabsBase = new _modules_Tabs__WEBPACK_IMPORTED_MODULE_10__["default"]('[tabs="theme-base"]');
+  tabsBase.init(); // tabsInit();
+  // parallaxInit();
   // swiperServicesInit();
 
   (0,_modules_cursorCustom__WEBPACK_IMPORTED_MODULE_5__["default"])(); // navMobileInit();
@@ -192,6 +203,99 @@ document.addEventListener('DOMContentLoaded', function () {
   // lazyImagesInit();
   // debugInit();
 });
+
+/***/ }),
+
+/***/ "./assets/scripts/modules/Accordions.js":
+/*!**********************************************!*\
+  !*** ./assets/scripts/modules/Accordions.js ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Accordions; }
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Accordions = /*#__PURE__*/function () {
+  function Accordions(selector) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var isDebug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+    _classCallCheck(this, Accordions);
+
+    this.selector = selector;
+    this.element = document.querySelectorAll(this.selector);
+    this.options = options;
+    this.isDebug = isDebug;
+    this.hashTag = window.location.hash;
+  }
+
+  _createClass(Accordions, [{
+    key: "checkHashTag",
+    value: function checkHashTag(el) {
+      if (el) {
+        var component = el.closest(this.selector);
+
+        if (component) {
+          var button = el;
+          var content = component.querySelector('[accordion-content]');
+          content.style.setProperty('--max-height', "".concat(content.scrollHeight, "px"));
+          component.classList.add('is-active');
+          button.setAttribute('aria-expanded', 'true');
+          content.setAttribute('aria-hidden', 'false');
+          el.scrollIntoView({
+            block: 'start',
+            behavior: 'smooth',
+            inline: 'nearest'
+          });
+        }
+      }
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.hashTag) {
+        var elHash = document.querySelector(this.hashTag);
+        this.checkHashTag(elHash);
+      }
+
+      this.element.forEach(function (component) {
+        var button = component.querySelector('[accordion-button]');
+        var content = component.querySelector('[accordion-content]');
+
+        if (component.classList.contains('is-active')) {
+          button.setAttribute('aria-expanded', 'true');
+          content.setAttribute('aria-hidden', 'false');
+        }
+
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          if (component.classList.contains('is-active')) {
+            component.classList.remove('is-active');
+            button.setAttribute('aria-expanded', 'false');
+            content.setAttribute('aria-hidden', 'true');
+          } else {
+            content.style.setProperty('--max-height', "".concat(content.scrollHeight, "px"));
+            component.classList.add('is-active');
+            button.setAttribute('aria-expanded', 'true');
+            content.setAttribute('aria-hidden', 'false');
+          }
+        });
+      });
+    }
+  }]);
+
+  return Accordions;
+}();
+
+
 
 /***/ }),
 
@@ -266,6 +370,106 @@ var StickyNav = /*#__PURE__*/function () {
   }]);
 
   return StickyNav;
+}();
+
+
+
+/***/ }),
+
+/***/ "./assets/scripts/modules/Tabs.js":
+/*!****************************************!*\
+  !*** ./assets/scripts/modules/Tabs.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Tabs; }
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Tabs = /*#__PURE__*/function () {
+  function Tabs(selector) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var isDebug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+    _classCallCheck(this, Tabs);
+
+    this.selector = selector;
+    this.elComponent = document.querySelectorAll(this.selector);
+    this.options = options;
+    this.isDebug = isDebug;
+    this.hashTag = window.location.hash;
+  } // eslint-disable-next-line class-methods-use-this
+
+
+  _createClass(Tabs, [{
+    key: "updateTab",
+    value: function updateTab(id, el) {
+      var elComponent = el.closest('[tabs]');
+      var elAllTabsButtons = elComponent.querySelectorAll('[tabs-button]');
+      var elAllTabsContent = elComponent.querySelectorAll('[tabs-content]');
+      var elActiveButton = elComponent.querySelector("[data-button-index=\"".concat(id, "\"]"));
+      var elActiveContent = elComponent.querySelector("[data-content-index=\"".concat(id, "\"]"));
+      var tabsSelect = elComponent.querySelector('[tabs-select]');
+      /* buttons */
+
+      elAllTabsButtons.forEach(function (button) {
+        button.classList.remove('is-active');
+        button.setAttribute('aria-selected', 'false');
+      });
+      elActiveButton.classList.add('is-active');
+      elActiveButton.setAttribute('aria-selected', 'true');
+      /* content */
+
+      elAllTabsContent.forEach(function (content) {
+        content.classList.remove('is-active');
+        content.setAttribute('aria-hidden', 'true');
+      });
+      elActiveContent.classList.add('is-active');
+      elActiveContent.setAttribute('aria-hidden', 'false');
+      tabsSelect.selectedIndex = id - 1;
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      var _this = this;
+
+      this.elComponent.forEach(function (elComponent) {
+        var tabsButtons = elComponent.querySelectorAll('[tabs-button]');
+        var tabsSelect = elComponent.querySelector('[tabs-select]');
+
+        if (tabsButtons.length > 0) {
+          tabsSelect.addEventListener('change', function (e) {
+            var value = e.target.value;
+            var el = e.currentTarget;
+
+            _this.updateTab(value, el);
+          });
+          tabsButtons.forEach(function (button) {
+            button.addEventListener('click', function (e) {
+              e.preventDefault();
+              var el = e.currentTarget;
+
+              if (!el.classList.contains('is-active')) {
+                var id = el.dataset.buttonIndex;
+
+                _this.updateTab(id, el);
+              }
+            });
+          });
+
+          _this.updateTab(1, tabsButtons[0]);
+        }
+      });
+    }
+  }]);
+
+  return Tabs;
 }();
 
 

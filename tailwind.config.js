@@ -167,6 +167,10 @@ module.exports = {
         overlay: 200,
         modal: 201,
       },
+      transitionProperty: {
+        height: 'height',
+        maxHeight: 'max-height',
+      },
       typography: {
         DEFAULT: {
           css: {

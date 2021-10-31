@@ -1,0 +1,49 @@
+<div class="sg-container-padding">
+
+  {% for item in 0..4 %}
+    <div accordion="theme-base">
+      <button id="accordion-control-{{ loop.index }}" aria-controls="content-{{ loop.index }}" aria-expanded="false" accordion-button>
+        <span>Apples</span>
+        <svg class="w-7px" aria-hidden="true" accordion-icon xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8.263 14.743">
+          <g data-name="Groupe 2331" stroke-width="2">
+            <path data-name="Tracé 1265" d="M.928.372a15.048 15.048 0 0 0 2.8 4.381 12.793 12.793 0 0 0 4.2 2.619"></path>
+            <path data-name="Tracé 1266" d="M.928 14.372a15.048 15.048 0 0 1 2.8-4.381 12.793 12.793 0 0 1 4.2-2.619"></path>
+          </g>
+        </svg>
+      </button>
+      <div id="content-{{ loop.index }}" aria-hidden="true" accordion-content>
+        <div accordion-content-body>
+          <div class="prose">
+            <p>Apples are a fine fruit often associated with good health, and fewer doctor's appointments.</p>
+            <p>Example. An apple a day keeps the doctor away.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum consequatur hic iste praesentium iusto sed temporibus. Commodi deleniti nisi hic totam, eligendi dignissimos quis, omnis consectetur laborum voluptate, sequi nostrum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for item in 0..4 %}
+    <div accordion="theme-green">
+      <button id="accordion-control-{{ 'a' ~ loop.index }}" aria-controls="content-{{ 'a' ~ loop.index }}" aria-expanded="false" accordion-button>
+        <span>Apples</span>
+        <svg class="w-7px" aria-hidden="true" accordion-icon xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8.263 14.743">
+          <g data-name="Groupe 2331" stroke-width="2">
+            <path data-name="Tracé 1265" d="M.928.372a15.048 15.048 0 0 0 2.8 4.381 12.793 12.793 0 0 0 4.2 2.619"></path>
+            <path data-name="Tracé 1266" d="M.928 14.372a15.048 15.048 0 0 1 2.8-4.381 12.793 12.793 0 0 1 4.2-2.619"></path>
+          </g>
+        </svg>
+      </button>
+      <div id="content-{{ 'a' ~ loop.index}}" aria-hidden="true" accordion-content>
+        <div accordion-content-body>
+          <div class="prose">
+            <p>Apples are a fine fruit often associated with good health, and fewer doctor's appointments.</p>
+            <p>Example. An apple a day keeps the doctor away.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum consequatur hic iste praesentium iusto sed temporibus. Commodi deleniti nisi hic totam, eligendi dignissimos quis, omnis consectetur laborum voluptate, sequi nostrum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+</div>

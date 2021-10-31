@@ -30,6 +30,7 @@ mix.setPublicPath(publicPath)
       }),
     ],
   })
+  .disableSuccessNotifications()
   .extract()
   .version();
 

@@ -1,4 +1,16 @@
-[tabs] {
+/* base
+-------------------------------------------- */
+[tabs="theme-base"] {
+  [tabs-header] {
+    @apply flex space-x-2;
+  }
+
+  [tabs-button] {
+    &.is-active {
+      @apply bg-green-1;
+    }
+  }
+
   [tabs-content] {
     @apply hidden;
 

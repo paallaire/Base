@@ -1,0 +1,71 @@
+<div class="sg-container-padding">
+
+
+  <div tabs="theme-base">
+
+    <select id="1" tabs-select>
+      {% for item in 0..4 %}
+        <option value="{{ loop.index }}">{{ "Apples " ~ loop.index }}</option>
+      {% endfor %}
+    </select>
+
+    <ul tabs-header>
+      {% for item in 0..4 %}
+        <li>
+          <button class="btn-orange" id="tabs-control-{{ loop.index }}" data-button-index="{{ loop.index }}" aria-controls="content-{{ loop.index }}" aria-selected="false" tabs-button>
+            <span>{{ "Apples " ~ loop.index }}</span>
+          </button>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% for item in 0..4 %}
+      <div id="content-{{ loop.index }}" aria-hidden="true" tabs-content data-content-index="{{ loop.index }}">
+        <div tabs-content-body>
+          <div class="prose">
+            <h2 class="h2">{{ loop.index }}</h2>
+            <p>Apples are a fine fruit often associated with good health, and fewer doctor's appointments.</p>
+            <p>Example. An apple a day keeps the doctor away.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum consequatur hic iste praesentium iusto sed temporibus. Commodi deleniti nisi hic totam, eligendi dignissimos quis, omnis consectetur laborum voluptate, sequi nostrum.</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+
+
+  <div tabs="theme-base" class="mt-20">
+
+    <select id="a" tabs-select>
+      {% for item in 0..4 %}
+        <option value="{{ loop.index }}">{{ "Apples " ~ 'a' ~ loop.index }}</option>
+      {% endfor %}
+    </select>
+
+    <ul tabs-header>
+      {% for item in 0..4 %}
+        <li>
+          <button class="btn-orange" id="tabs-control-{{ 'a' ~ loop.index }}" data-button-index="{{ loop.index }}" aria-controls="content-{{ 'a' ~ loop.index }}" aria-selected="false" tabs-button>
+            <span>{{ "Apples " ~ 'a' ~ loop.index }}</span>
+          </button>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% for item in 0..4 %}
+      <div id="content-{{ 'a' ~ loop.index }}" aria-hidden="true" tabs-content data-content-index="{{ loop.index }}">
+        <div tabs-content-body>
+          <div class="prose">
+            <h2 class="h2">{{ 'a' ~ loop.index }}</h2>
+            <p>Apples are a fine fruit often associated with good health, and fewer doctor's appointments.</p>
+            <p>Example. An apple a day keeps the doctor away.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum consequatur hic iste praesentium iusto sed temporibus. Commodi deleniti nisi hic totam, eligendi dignissimos quis, omnis consectetur laborum voluptate, sequi nostrum.</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+
+</div>
