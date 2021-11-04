@@ -3,90 +3,78 @@
 const { series, parallel, src, dest, watch } = require("gulp");
 const del = require("del");
 
-/* Plugins
+/* Variables
 -------------------------------------------- */
-const imagemin = require("gulp-imagemin");
-const svgSprite = require("gulp-svg-sprite");
-const rename = require("gulp-rename");
-
 const srcPath = "assets";
 const publicPath = "dist";
 
-/* del
+/* Plugins
 -------------------------------------------- */
-function cleanTask(cb) {
-  del('./dist/*/');
-  cb();
-}
+const rename = require("gulp-rename");
+const less = require('gulp-less');
+const postcss = require('gulp-postcss');
 
-/* imagemin
--------------------------------------------- */
-const imageminOptions =
-  ([
-    imagemin.gifsicle({ interlaced: true }),
-    imagemin.mozjpeg({ quality: 75, progressive: true }),
-    imagemin.optipng({ optimizationLevel: 5 }),
-    imagemin.svgo({
-      plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-    }),
-  ],
-  {
-    verbose: true,
-  });
-
-function imagesTask() {
-  return src(`${srcPath}/images/**/*`)
-    .pipe(imagemin(imageminOptions))
-    .pipe(dest(`${publicPath}/images`));
-}
-
-/* fonts
--------------------------------------------- */
-function fontsTask() {
-  return src("**/*", { cwd: `${srcPath}/fonts` }).pipe(
-    dest(`${publicPath}/fonts`)
-  );
-}
-
-/* icons
--------------------------------------------- */
-const config = {
-  mode: {
-    defs: {
-      dest: "",
-      sprite: "sprite.svg",
-    },
-  },
+dir = {
+  src: 'assets/',
+  build: 'dist/'
 };
 
-function iconsTask() {
-  return src("**/*.svg", { cwd: "./assets/icons" })
-    .pipe(svgSprite(config))
-    .pipe(dest("./public/dist/icons"));
+/* del
+-------------------------------------------- */
+function cleanTask() {
+  return del([dir.build]);
 }
 
-/* icomoonSvgTask
+/* less
 -------------------------------------------- */
-// function icomoonSvgTask() {
-//     return src("**/*", { cwd: `${srcPath}/icomoon` }).pipe(
-//         dest(`${publicPath}/icomoon`)
-//     );
-// }
+function lessTask() {
 
-/* icomoonCssTask
--------------------------------------------- */
-// function icomoonCssTask() {
-//     return src("style.css", { cwd: "./assets/icomoon" })
-//         .pipe(rename("icomoon.scss"))
-//         .pipe(dest("./assets/styles/02.base"));
-// }
+  return gulp
+    .src(dir.srcPath + 'less/main.less')
+    // .pipe(plumber())
+    .pipe(less())
+    .pipe(
+      postcss([
+        // require('tailwindcss')('../../libs/tailwindcss/tailwind.config.js'),
+        require('autoprefixer'),
+        require('postcss-pxtorem')({
+          rootValue: 10,
+          unitPrecision: 5,
+          propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
+          selectorBlackList: [],
+          replace: true,
+          mediaQuery: false,
+          minPixelValue: 0
+        })
+      ])
+    )
+    .pipe(
+      rename({
+        suffix: '.min'
+      })
+    )
+    .pipe(gulp.dest(dir.build));
+  // .pipe(
+  //     browserSyncSiteReload({
+  //         stream: true
+  //     })
+  // );
+
+
+}
+
+
+
+
+
+
 
 /* watch
 -------------------------------------------- */
-function watchTask(cb) {
+function watchTask(done) {
   watch("assets/images/**/*", imagesTask);
   watch("assets/fonts/**/*", fontsTask);
-  cb();
+  done();
 }
 
 /* env
@@ -113,6 +101,7 @@ exports.watch = series(
 );
 
 exports.clean = cleanTask;
+exports.less = lessTask;
 exports.images = imagesTask;
 exports.fonts = fontsTask;
 exports.icons = iconsTask;

@@ -167,6 +167,20 @@ module.exports = {
         overlay: 200,
         modal: 201,
       },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 300ms ease forwards',
+        fadeOut: 'fadeOut 300ms ease forwards',
+      },
       transitionProperty: {
         height: 'height',
         maxHeight: 'max-height',

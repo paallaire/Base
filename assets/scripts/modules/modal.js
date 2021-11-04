@@ -12,15 +12,18 @@ export default function modalInit() {
 
   /* function
   -------------------------------------------- */
-  function hideModals() {
-    elModalActive = null;
-    elModalOverlay = null;
-
+  function removeClass() {
     elModals.forEach((el, index) => {
       el.classList.remove('is-active');
       el.classList.remove('animation-in');
       el.classList.remove('animation-out');
     });
+  }
+
+  function resetState() {
+    elModalActive = null;
+    elModalOverlay = null;
+    awaitAnimation = false;
   }
 
   /* init
@@ -32,7 +35,7 @@ export default function modalInit() {
       const id = el.getAttribute('href');
 
       if (!awaitAnimation) {
-        hideModals();
+        removeClass();
         elModalActive = document.querySelector(`#${id}`);
         elModalOverlay = elModalActive.querySelector('[modal-overlay]');
         elModalActive.classList.add('is-active');
@@ -40,7 +43,14 @@ export default function modalInit() {
 
         setTimeout(() => {
           elModalActive.classList.add('animation-in');
+          awaitAnimation = true;
         }, 1);
+
+        const animationIn = () => {
+          elModalOverlay.removeEventListener('animationend', animationIn);
+          awaitAnimation = false;
+        };
+        elModalOverlay.addEventListener('animationend', animationIn, false);
       }
     });
   });
@@ -51,20 +61,13 @@ export default function modalInit() {
 
       elModalActive.classList.add('animation-out');
 
-      // const animationOut = (e) => {
-      //   console.log('e:', e);
-      //   if (e.propertyName === 'background-color') {
-      //     console.log('animationOut:', e.propertyName);
-      //   }
-      //   elModalOverlay.removeEventListener('transitionend', animationOut);
-      // };
-      // elModalOverlay.addEventListener('transitionend', animationOut, false);
-
-      setTimeout(() => {
+      const animationOut = () => {
+        elModalOverlay.removeEventListener('animationend', animationOut);
         elHtml.classList.remove('no-scroll');
-        awaitAnimation = false;
-        hideModals();
-      }, 200);
+        resetState();
+        removeClass();
+      };
+      elModalOverlay.addEventListener('animationend', animationOut, false);
     });
   });
 }
