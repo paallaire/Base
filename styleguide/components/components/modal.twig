@@ -2,13 +2,13 @@
 
   <a class="btn-orange" href="modal-base-1" modal-trigger>modal-base-1</a>
 
-  <div class="modal-base" id="modal-base-1" role="dialog" aria-labelledby="modal-title" aria-modal="true" modal="theme-base">
+  <div class="modal-base" id="modal-base-1" role="dialog" aria-labelledby="modal-1-title" aria-modal="true" modal="theme-base">
     <div modal-wrapper>
 
-      <div modal-overlay="" aria-hidden="true" modal-close></div>
-      <div modal-content="">
+      <div aria-hidden="true" modal-overlay modal-close></div>
+      <div modal-content>
 
-        <h2 class="h5">lorem account</h2>
+        <h2 class="h5" id="modal-1-title">lorem account</h2>
         <div class="mt-2 prose">
           {% for item in 0..20 %}
             <p>Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>

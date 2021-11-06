@@ -26,6 +26,26 @@ export default function modalInit() {
     awaitAnimation = false;
   }
 
+  function modalClose() {
+    elModalActive.classList.add('animation-out');
+
+    const animationOut = () => {
+      elModalOverlay.removeEventListener('animationend', animationOut);
+      elHtml.classList.remove('no-scroll');
+      resetState();
+      removeClass();
+    };
+    elModalOverlay.addEventListener('animationend', animationOut, false);
+  }
+
+  function modalKeyUp(e) {
+    const key = e.which || e.keyCode;
+
+    if (key === 27 && elModalActive !== null) {
+      modalClose();
+    }
+  }
+
   /* init
   -------------------------------------------- */
   elButtonsTrigger.forEach((el, index) => {
@@ -58,16 +78,9 @@ export default function modalInit() {
   elButtonsClose.forEach((el, index) => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-
-      elModalActive.classList.add('animation-out');
-
-      const animationOut = () => {
-        elModalOverlay.removeEventListener('animationend', animationOut);
-        elHtml.classList.remove('no-scroll');
-        resetState();
-        removeClass();
-      };
-      elModalOverlay.addEventListener('animationend', animationOut, false);
+      modalClose();
     });
   });
+
+  document.addEventListener('keyup', modalKeyUp);
 }
