@@ -5,7 +5,7 @@ const srcPath = 'assets';
 const publicPath = 'dist';
 
 mix.alias({
-  '@modules': './assets/scripts/modules',
+  '@modules': './assets/scripts/modules/',
   '@debug': './assets/scripts/debug',
 });
 

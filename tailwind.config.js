@@ -1,7 +1,6 @@
+/* eslint-disable global-require */
 // tailwind.config.js
-const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
-
 const spacingUnits = require('./assets/tailwindcss/units/generateUnitByMultiplicator')(5, 200);
 const fontSizeUnit = require('./assets/tailwindcss/units/generateUnitByMultiplicator')(2, 75);
 
@@ -24,8 +23,8 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: colors.black,
-      white: colors.white,
+      black: '#000',
+      white: '#fff',
       gray: {
         1: '#f9f8f4',
         2: '#03030e',
@@ -121,24 +120,22 @@ module.exports = {
       ...defaultTheme.width,
     },
     fontSize: {
+      xs: '12px',
+      sm: '14px',
       base: '16px',
       md: '18px',
       lg: '20px',
-      xl: '48px',
+      xl: '24px',
       ...fontSizeUnit,
     },
     fontFamily: {
-      work: ['Work Sans', 'sans-serif'],
-      montserrat: ['Montserrat', 'sans-serif'],
+      inter: ['Inter', 'sans-serif'],
     },
     fill: {
       current: 'currentColor',
       transparent: 'transparent',
     },
     extend: {
-      backgroundImage: {
-        hero: 'linear-gradient(90deg, rgba(100,172,244,1) 0%, rgba(37,27,150,1) 60%, rgba(135,27,165,1) 100%);',
-      },
       maxWidth: {
         ...spacingUnits,
       },
@@ -188,7 +185,7 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            color: '#03030E',
+            color: 'currentColor',
             maxWidth: 'none',
             a: {
               color: '#03030E',
@@ -204,10 +201,14 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    require('@tailwindcss/typography')({
+      className: 'wysiwyg',
+    }),
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/forms'),
+    require('@tailwindcss/forms')({
+      strategy: 'class',
+    }),
     require('./assets/tailwindcss/plugins/debug-screens'),
     require('./assets/tailwindcss/plugins/container'),
     require('tailwind-css-variables')(

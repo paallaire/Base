@@ -2,7 +2,7 @@ export default function modalInit() {
   /* variables
   -------------------------------------------- */
   const elHtml = document.querySelector('html');
-  const elModals = document.querySelectorAll('[modal]');
+  const elModals = document.querySelectorAll('[modal2]');
   const elButtonsTrigger = document.querySelectorAll('[modal-trigger]');
   const elButtonsClose = document.querySelectorAll('[modal-close]');
 
@@ -48,39 +48,41 @@ export default function modalInit() {
 
   /* init
   -------------------------------------------- */
-  elButtonsTrigger.forEach((el, index) => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
+  if (elModals.length > 0) {
+    elButtonsTrigger.forEach((el, index) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
 
-      const id = el.getAttribute('href');
+        const id = el.getAttribute('href');
 
-      if (!awaitAnimation) {
-        removeClass();
-        elModalActive = document.querySelector(`#${id}`);
-        elModalOverlay = elModalActive.querySelector('[modal-overlay]');
-        elModalActive.classList.add('is-active');
-        elHtml.classList.add('no-scroll');
+        if (!awaitAnimation) {
+          removeClass();
+          elModalActive = document.querySelector(`#${id}`);
+          elModalOverlay = elModalActive.querySelector('[modal-overlay]');
+          elModalActive.classList.add('is-active');
+          elHtml.classList.add('no-scroll');
 
-        setTimeout(() => {
-          elModalActive.classList.add('animation-in');
-          awaitAnimation = true;
-        }, 1);
+          setTimeout(() => {
+            elModalActive.classList.add('animation-in');
+            awaitAnimation = true;
+          }, 1);
 
-        const animationIn = () => {
-          elModalOverlay.removeEventListener('animationend', animationIn);
-          awaitAnimation = false;
-        };
-        elModalOverlay.addEventListener('animationend', animationIn, false);
-      }
+          const animationIn = () => {
+            elModalOverlay.removeEventListener('animationend', animationIn);
+            awaitAnimation = false;
+          };
+          elModalOverlay.addEventListener('animationend', animationIn, false);
+        }
+      });
     });
-  });
 
-  elButtonsClose.forEach((el, index) => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      modalClose();
+    elButtonsClose.forEach((el, index) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalClose();
+      });
     });
-  });
 
-  document.addEventListener('keyup', modalKeyUp);
+    document.addEventListener('keyup', modalKeyUp);
+  }
 }

@@ -1,6 +1,6 @@
-$dev-grid-visualizer: ".dev-grid-visualizer";
-
-#{$dev-grid-visualizer} {
+/* grid-visualizer
+-------------------------------------------- */
+.dev-grid-visualizer {
   @apply hidden w-full h-full fixed top-0 left-0 z-[1000];
 
   &.is-active {

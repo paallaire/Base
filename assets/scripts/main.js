@@ -4,44 +4,25 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-// components
-import parallaxInit from '@modules/parallax';
-import StickyNav from '@modules/StickyNav';
-import swiperServicesInit from '@modules/swiperServices';
-import cursorCustomInit from '@modules/cursorCustom';
-import navMobileInit from '@modules/navMobile';
-import aosInit from '@modules/animationOnScroll';
-import lazyImagesInit from '@modules/lazyImages';
-import Accordions from '@modules/Accordions';
-import Tabs from '@modules/Tabs';
-import modalInit from '@modules/modal';
-
-// debug
 import debugInit from '@debug/index';
 
+/* Alpine
+-------------------------------------------- */
+import Alpine from 'alpinejs';
+
+import modal from './alpine/modal';
+import navMobile from './alpine/navMobile';
+import accordion from './alpine/accordion';
+
+Alpine.data('modal', modal);
+Alpine.data('navMobile', navMobile);
+Alpine.data('accordion', accordion);
+
+window.Alpine = Alpine;
+Alpine.start();
+
+/* Custom javascript
+-------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  const siteNav = new StickyNav('#site-header');
-  siteNav.init();
-
-  const accordionBase = new Accordions('[accordion="theme-base"]');
-  accordionBase.init();
-
-  const accordionGreen = new Accordions('[accordion="theme-green"]');
-  accordionGreen.init();
-
-  const tabsBase = new Tabs('[tabs="theme-base"]');
-  tabsBase.init();
-
-  modalInit();
-
-  // tabsInit();
-
-  // parallaxInit();
-  // swiperServicesInit();
-  cursorCustomInit();
-  // navMobileInit();
-  // aosInit();
-  // lazyImagesInit();
-
-  // debugInit();
+  debugInit();
 });

@@ -7,7 +7,7 @@ export default function navMobileInit() {
     $element.addEventListener('click', (e) => {
       e.preventDefault();
 
-      const $hamburgerHeader = document.querySelector('#site-header .hamburger');
+      const $hamburgerHeader = document.querySelector('.c-site-header .hamburger');
       const $hamburgerNavMobile = document.querySelector('#site-nav-mobile .hamburger');
 
       $navMobile.classList.toggle('is-active');

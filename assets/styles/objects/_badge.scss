@@ -1,0 +1,20 @@
+/* badge
+-------------------------------------------- */
+%badge {
+  @apply inline-flex items-center leading-normal rounded-base py-1 px-2 font-inter font-semibold text-xs;
+}
+
+.badge-blue {
+  @extend %badge;
+  @apply bg-blue-1 text-gray-4;
+}
+
+.badge-orange {
+  @extend %badge;
+  @apply bg-orange-1 text-gray-4;
+}
+
+.badge-green {
+  @extend %badge;
+  @apply bg-green-1 text-gray-4;
+}

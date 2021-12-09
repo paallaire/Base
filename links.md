@@ -1,15 +1,23 @@
-# Tailwindcss
+## Buttons transition
+https://tympanus.net/Development/ButtonHoverStyles/
+https://tympanus.net/Development/ButtonComponentMorph/
 
-Front-end boilerplate for projects
+## Link transition
+https://tympanus.net/Development/LineHoverStyles/
+https://tympanus.net/codrops/2013/08/06/creative-link-effects/
+
+## Nav transition
+https://tympanus.net/Development/SidebarTransitions/
+
+## Page transition
+https://tympanus.net/Development/PageTransitions/
+
+## Lab
+https://play.tailwindcss.com/2DjLvGSsyH
 
 
-
-# Conseils
-
-## Grid
-
-Utiliser display:flex lorsque c'est une grid simple ou sur une ligne sinon display:grid 
-Pour gérer les espacements, utiliser la propriété "gap" au lieu de margin-padding
+# Clamp generator
+https://vw.joealden.com/
 
 ## Navigateurs supportés
 

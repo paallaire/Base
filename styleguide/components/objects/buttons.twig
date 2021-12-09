@@ -3,57 +3,57 @@
 
 <div class="sg-container-padding">
 
-	<div class="flex justify-between">
+  <div class="flex justify-between">
 
-		<div class="w-1/3">
-			<div class="sg-title">Simple</div>
+    <div class="w-1/3">
+      <div class="sg-title">Simple</div>
 
-			<ul class="space-y-4">
-				{% for style in styles %}
-					<li>
-						<a href="" class="{{ style }}">
-							<span>{{"lorem " ~ style}}</span>
-						</a>
-					</li>
-				{% endfor %}
-			</ul>
+      <ul class="space-y-4">
+        {% for style in styles %}
+          <li>
+            <a href="" class="{{ style }}">
+              <span>{{"lorem " ~ style}}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
 
-		</div>
+    </div>
 
-		<div class="w-1/3">
+    <div class="w-1/3">
 
-			<div class="sg-title">bordered</div>
+      <div class="sg-title">bordered</div>
 
-			<ul class="space-y-4">
-				{% for style in stylesBordered %}
-					<li>
-						<a href="" class="{{ style }}">
-							<span>{{"lorem " ~ style}}</span>
-						</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</div>
+      <ul class="space-y-4">
+        {% for style in stylesBordered %}
+          <li>
+            <a href="" class="{{ style }}">
+              <span>{{"lorem " ~ style}}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
 
-		<div class="w-1/3">
+    <div class="w-1/3">
 
-			<div class="sg-title">bordered + icon</div>
+      <div class="sg-title">bordered + icon</div>
 
-			<ul class="space-y-4">
-				{% for style in stylesBordered %}
-					<li>
-						<a href="" class="{{ style }}">
-							<span>{{"lorem " ~ style}}</span>
-							<svg class="w-4 h-4 ml-3 fill-current" viewbox="0 0 20 20">
-								<path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" fill-rule="evenodd"></path>
-							</svg>
-						</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</div>
+      <ul class="space-y-4">
+        {% for style in stylesBordered %}
+          <li>
+            <a href="" class="{{ style }}">
+              <span>{{"lorem " ~ style}}</span>
+              <svg class="w-4 h-4 ml-3 fill-current" viewbox="0 0 20 20">
+                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" fill-rule="evenodd"></path>
+              </svg>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
 
 
-	</div>
+  </div>
 
 </div>

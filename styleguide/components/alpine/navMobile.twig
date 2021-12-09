@@ -1,0 +1,27 @@
+<div class="p-4">
+  <button x-data x-on:click="$dispatch('navMobile:open');">Nav mobile</button>
+</div>
+
+<div x-transition:enter="transition ease-out duration-500" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-out duration-500" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-data="navMobile" x-show="isVisible" navmobile="theme-base">
+
+  <div class="flex">
+    <p>Page title</p>
+
+    <div class="flex items-center ml-auto">
+
+      <a href @click.prevent="close();">Close</a>
+
+    </div>
+  </div>
+
+  <ul class="mt-10 space-y-3">
+    {% for item in primary_navigation.items %}
+      <li>
+        <a href="">
+          <span>Lorem...</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>

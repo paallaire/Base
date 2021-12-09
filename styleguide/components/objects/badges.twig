@@ -1,0 +1,16 @@
+{% set styles = ['badge-orange', 'badge-green', 'badge-blue'] %}
+
+<div class="sg-container-padding">
+
+  <ul class="space-y-4">
+    {% for style in styles %}
+      <li>
+        <a href="" class="{{ style }}">
+          <span>{{"lorem " ~ style}}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+</div>

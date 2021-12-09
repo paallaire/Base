@@ -1,5 +1,5 @@
 ---
-title: Alethia
+title: Base
 ---
 
-Alethia component library
+Base component library

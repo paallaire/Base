@@ -1,0 +1,32 @@
+<div class="p-4">
+
+  <ul class="max-w-100 space-y-5">
+
+    {% for item in 0..5 %}
+      <li>
+        <div x-data="accordion()">
+          <button id="accordion-control-{{ loop.index }}" aria-controls="content-{{ loop.index }}" class="bg-blue-1 flex items-center w-full p-2 text-white" x-on:click="toggle()" x-ref="button">
+            <span>{{ 'item #' ~ loop.index }}</span>
+            <svg class="w-7px ml-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8.263 14.743">
+              <g data-name="Groupe 2331" stroke-width="2">
+                <path data-name="Tracé 1265" d="M.928.372a15.048 15.048 0 0 0 2.8 4.381 12.793 12.793 0 0 0 4.2 2.619"></path>
+                <path data-name="Tracé 1266" d="M.928 14.372a15.048 15.048 0 0 1 2.8-4.381 12.793 12.793 0 0 1 4.2-2.619"></path>
+              </g>
+            </svg>
+          </button>
+          <div id="content-{{ loop.index }}" x-show="isVisible" x-ref="content" class="bg-green-1 p-2 text-white">
+
+            <div class="prose">
+              <p>Apples are a fine fruit often associated with good health, and fewer doctor's appointments.</p>
+              <p>Example. An apple a day keeps the doctor away.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum consequatur hic iste praesentium iusto sed temporibus. Commodi deleniti nisi hic totam, eligendi dignissimos quis, omnis consectetur laborum voluptate, sequi nostrum.</p>
+            </div>
+
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+
+  </ul>
+
+</div>

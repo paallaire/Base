@@ -1,0 +1,10 @@
+<div class="sg-container-padding">
+
+  {% for item in 1..6 %}
+    <p class="{{ 'h' ~ loop.index }}">Heading
+      {{ loop.index }}
+      Lorem ipsum dolor sit amet</p>
+    <br/><br/>
+  {% endfor %}
+
+</div>

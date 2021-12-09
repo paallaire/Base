@@ -1,10 +1,10 @@
 const _ = require('lodash');
 
 module.exports = function ({
-  addUtilities, e, theme, variants,
+  addComponents, e, theme, variants,
 }) {
   const container = theme('container', {});
-  const utilities = _.map(container, (value, name) => ({
+  const components = _.map(container, (value, name) => ({
     [`.${e(`container-${name}`)}`]: {
       maxWidth: `${value}`,
       marginLeft: 'auto',
@@ -17,12 +17,18 @@ module.exports = function ({
       paddingLeft: theme('spacing.4'),
       paddingRight: theme('spacing.4'),
 
-      [`@media (min-width: ${name}px)`]: {
-        paddingLeft: theme('spacing.0'),
-        paddingRight: theme('spacing.0'),
+      '@media (min-width: 1024px)': {
+        paddingLeft: theme('spacing.6'),
+        paddingRight: theme('spacing.6'),
       },
+
+      '@media (min-width: 1440px)': {
+        paddingLeft: theme('spacing.8'),
+        paddingRight: theme('spacing.8'),
+      },
+
     },
   }));
 
-  addUtilities(utilities, ['responsive']);
+  addComponents(components, ['responsive']);
 };

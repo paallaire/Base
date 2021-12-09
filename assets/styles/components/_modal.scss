@@ -1,39 +1,19 @@
 [modal="theme-base"] {
-  @apply fixed z-100 inset-0 hidden;
+  @apply fixed z-100 inset-0;
 
   [modal-wrapper] {
-    @apply flex items-center justify-center h-full;
+    @apply flex items-center justify-center min-h-screen;
   }
 
   [modal-overlay] {
-    @apply fixed inset-0 bg-black/60 opacity-0 cursor-pointer;
+    @apply fixed inset-0 bg-black/60 cursor-pointer;
   }
 
   [modal-content] {
-    @apply bg-white max-w-100 w-full p-5 opacity-0 relative z-100 overflow-hidden max-h-[80vh] overflow-y-visible;
+    @apply bg-white max-w-100 w-full p-5 relative z-100 overflow-hidden max-h-[80vh] overflow-y-visible;
   }
 
-  &.is-active {
-    @apply block;
-  }
-
-  &.animation-in {
-    [modal-overlay] {
-      @apply animate-fadeIn;
-    }
-
-    [modal-content] {
-      @apply animate-fadeIn;
-    }
-  }
-
-  &.animation-out {
-    [modal-overlay] {
-      @apply animate-fadeOut;
-    }
-
-    [modal-content] {
-      @apply animate-fadeOut;
-    }
+  h2:focus {
+    border: 10px solid red;
   }
 }

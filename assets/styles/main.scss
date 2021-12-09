@@ -1,58 +1,50 @@
 @tailwind base;
 
-// @import "./variables";
+@import "./abstracts/functions";
+@import "./abstracts/variables";
 
-// /* base
+/* base
 // -------------------------------------------- */
 @import "./base/scrollbar";
 @import "./base/fonts";
-@import "./base/html";
-@import "./base/body";
-@import "./base/form";
+@import "./base/tags";
+@import "./base/debug";
 @import "./base/transitions";
 @import "./base/animations";
-
-// /* vendors
-// -------------------------------------------- */
-// @import "~hamburgers/_sass/hamburgers/hamburgers";
+@import "./base/styleguide";
 
 @tailwind components;
 
-// /* objects
+/* objects
 // -------------------------------------------- */
 @import "./objects/headings";
-@import "./objects/prose";
+@import "./objects/wysiwyg";
 @import "./objects/buttons";
 @import "./objects/links";
 @import "./objects/surtitles";
-@import "./objects/custom-cursor";
+@import "./objects/list";
+@import "./objects/badge";
 
 /* components
 // -------------------------------------------- */
+@import "./components/form";
 @import "./components/accordions";
 @import "./components/tabs";
 @import "./components/modal";
+@import "./components/custom-cursor";
+@import "./components/site-header";
+@import "./components/modal";
+@import "./components/navMobile";
 
-/* header
+/* vendors
 // -------------------------------------------- */
-@import "./layouts/header";
+@import "./vendors/alpine";
+@import "~hamburgers/_sass/hamburgers/hamburgers";
 
-// /* utilities
+/* utilities
 // -------------------------------------------- */
 @tailwind utilities;
 
 // /* debug
 // -------------------------------------------- */
 // @import "./debug/_grid-visualizer";
-
-.sg-container-md {
-  @apply max-w-[1000px] px-4 mx-auto;
-}
-
-.sg-container-padding {
-  @apply px-20 py-5;
-}
-
-#test {
-  @apply transition duration-1000 ease-in-out translate-y-50;
-}

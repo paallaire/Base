@@ -2,25 +2,22 @@
 -------------------------------------------- */
 %btn {
   @extend %transition-basic;
-  @apply inline-flex items-center leading-none rounded-base py-3 px-7 font-work font-bold text-base;
+  @apply inline-flex items-center leading-normal rounded-base py-3 px-7 font-inter font-semibold text-base;
 }
 
 .btn-blue {
-  @extend %transition-basic;
   @extend %btn;
   @apply bg-blue-1 text-gray-4;
   @apply hover:bg-black;
 }
 
 .btn-orange {
-  @extend %transition-basic;
   @extend %btn;
   @apply bg-orange-1 text-gray-4;
   @apply hover:bg-black;
 }
 
 .btn-green {
-  @extend %transition-basic;
   @extend %btn;
   @apply bg-green-1 text-gray-4;
   @apply hover:bg-black;
@@ -30,25 +27,22 @@
 -------------------------------------------- */
 %btn-bordered {
   @extend %transition-basic;
-  @apply inline-flex items-center leading-none rounded-base py-3 px-7 font-work font-bold text-base border-2 border-solid;
+  @apply inline-flex items-center leading-normal rounded-base py-3 px-7 font-inter font-semibold text-base border-2 border-solid;
 }
 
 .btn-bordered-blue {
-  @extend %transition-basic;
   @extend %btn-bordered;
   @apply bg-blue-1/60 text-gray-4 border-black/40;
   @apply hover:bg-black;
 }
 
 .btn-bordered-orange {
-  @extend %transition-basic;
   @extend %btn-bordered;
   @apply bg-orange-1/60 text-gray-4 border-black/40;
   @apply hover:bg-black;
 }
 
 .btn-bordered-green {
-  @extend %transition-basic;
   @extend %btn-bordered;
   @apply bg-green-1/60 text-gray-4 border-black/40;
   @apply hover:bg-black;

@@ -1,52 +1,35 @@
 /* heading
 -------------------------------------------- */
 %heading {
-  @apply font-montserrat leading-none uppercase;
+  @apply font-inter font-bold  leading-none uppercase;
 }
 
 .h1 {
   @extend %heading;
-}
-
-.h1 {
-  @extend %heading;
-  @apply font-bold text-30;
-  @apply md:text-44;
+  font-size: clamp(40px, clampGetRelativeSize(80, 1920), 80px);
 }
 
 .h2 {
   @extend %heading;
-  @apply font-normal text-22;
-  @apply md:text-40;
+  font-size: clamp(32px, clampGetRelativeSize(70, 1920), 70px);
 }
 
 .h3 {
   @extend %heading;
-  @apply font-bold text-18;
-  @apply md:text-32;
+  font-size: clamp(28px, clampGetRelativeSize(64, 1920), 64px);
 }
 
 .h4 {
   @extend %heading;
-  @apply font-bold text-12;
-  @apply md:text-16;
+  font-size: clamp(24px, clampGetRelativeSize(50, 1920), 50px);
 }
 
 .h5 {
   @extend %heading;
-  @apply font-bold text-10;
-  @apply md:text-12;
+  font-size: clamp(20px, clampGetRelativeSize(40, 1920), 40px);
 }
 
 .h6 {
   @extend %heading;
-  @apply font-bold;
-  @apply md:text-9;
-}
-
-/* sg
--------------------------------------------- */
-.sg-title {
-  @extend %heading;
-  @apply text-10 font-bold my-4;
+  font-size: clamp(18px, clampGetRelativeSize(32, 1920), 32px);
 }

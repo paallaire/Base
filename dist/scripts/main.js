@@ -1,6 +1,108 @@
 "use strict";
 (self["webpackChunkmutation"] = self["webpackChunkmutation"] || []).push([["/scripts/main"],{
 
+/***/ "./assets/scripts/alpine/accordion.js":
+/*!********************************************!*\
+  !*** ./assets/scripts/alpine/accordion.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  return {
+    isOpen: initState,
+    init: function init() {
+      this.isOpen = initState;
+      this.updateAttributes();
+    },
+    toggle: function toggle() {
+      this.isOpen = !this.isOpen;
+      this.updateAttributes();
+    },
+    updateAttributes: function updateAttributes() {
+      var button = this.$refs.button;
+      var content = this.$refs.content;
+      button.setAttribute('aria-expanded', this.isOpen);
+      content.setAttribute('aria-hidden', !this.isOpen);
+
+      if (this.isOpen) {
+        button.classList.add('is-active');
+      } else {
+        button.classList.remove('is-active');
+      }
+    },
+    isVisible: function isVisible() {
+      return this.isOpen;
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./assets/scripts/alpine/modal.js":
+/*!****************************************!*\
+  !*** ./assets/scripts/alpine/modal.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (id) {
+  return {
+    isOpen: false,
+    id: id,
+    init: function init() {
+      var _this = this;
+
+      document.addEventListener('modal:open', function (e) {
+        if (_this.id === e.detail) {
+          _this.isOpen = true;
+
+          _this.$nextTick(function () {
+            _this.$refs.modalTitle.focus();
+          });
+        }
+      }, false);
+    },
+    close: function close() {
+      this.isOpen = false;
+    },
+    isVisible: function isVisible() {
+      return this.isOpen;
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./assets/scripts/alpine/navMobile.js":
+/*!********************************************!*\
+  !*** ./assets/scripts/alpine/navMobile.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return {
+    isOpen: false,
+    init: function init() {
+      var _this = this;
+
+      document.addEventListener('navMobile:open', function (e) {
+        _this.isOpen = true;
+      }, false);
+    },
+    close: function close() {
+      this.isOpen = false;
+    },
+    isVisible: function isVisible() {
+      return this.isOpen;
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./assets/scripts/debug/GridVisualizer.js":
 /*!************************************************!*\
   !*** ./assets/scripts/debug/GridVisualizer.js ***!
@@ -107,14 +209,13 @@ var lang = elHtml.getAttribute('lang') !== null ? elHtml.getAttribute('lang') : 
 var isDev = searchTermsDev.some(function (el) {
   return window.location.href.includes(el);
 });
-var screens = {
-  xs: 500,
-  md: 768,
-  ls: 1024,
-  lg: 1280,
-  xl: 1440,
-  '2xl': 1920
-};
+var screens = {};
+var screensUnits = getComputedStyle(document.documentElement).getPropertyValue('--screens').split(',');
+screensUnits.forEach(function (el, index) {
+  var name = el.replace(/\s/g, '');
+  var value = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--screen-".concat(el)).replace(/\s/g, '').replace('px', ''), 10);
+  screens[name] = Number.isNaN(value) ? 0 : value;
+});
 
 
 /***/ }),
@@ -160,719 +261,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_stable__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_parallax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @modules/parallax */ "./assets/scripts/modules/parallax.js");
-/* harmony import */ var _modules_StickyNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @modules/StickyNav */ "./assets/scripts/modules/StickyNav.js");
-/* harmony import */ var _modules_swiperServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @modules/swiperServices */ "./assets/scripts/modules/swiperServices.js");
-/* harmony import */ var _modules_cursorCustom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @modules/cursorCustom */ "./assets/scripts/modules/cursorCustom.js");
-/* harmony import */ var _modules_navMobile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @modules/navMobile */ "./assets/scripts/modules/navMobile.js");
-/* harmony import */ var _modules_animationOnScroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @modules/animationOnScroll */ "./assets/scripts/modules/animationOnScroll.js");
-/* harmony import */ var _modules_lazyImages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @modules/lazyImages */ "./assets/scripts/modules/lazyImages.js");
-/* harmony import */ var _modules_Accordions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @modules/Accordions */ "./assets/scripts/modules/Accordions.js");
-/* harmony import */ var _modules_Tabs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @modules/Tabs */ "./assets/scripts/modules/Tabs.js");
-/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @modules/modal */ "./assets/scripts/modules/modal.js");
-/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
+/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var _alpine_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./alpine/modal */ "./assets/scripts/alpine/modal.js");
+/* harmony import */ var _alpine_navMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./alpine/navMobile */ "./assets/scripts/alpine/navMobile.js");
+/* harmony import */ var _alpine_accordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./alpine/accordion */ "./assets/scripts/alpine/accordion.js");
 /* eslint-disable import/no-extraneous-dependencies */
 // polyfill only stable `core-js` features - ES and web standards:
 
- // components
+
+
+/* Alpine
+-------------------------------------------- */
 
 
 
 
 
-
-
-
-
-
- // debug
-
+alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].data('modal', _alpine_modal__WEBPACK_IMPORTED_MODULE_4__["default"]);
+alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].data('navMobile', _alpine_navMobile__WEBPACK_IMPORTED_MODULE_5__["default"]);
+alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].data('accordion', _alpine_accordion__WEBPACK_IMPORTED_MODULE_6__["default"]);
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].start();
+/* Custom javascript
+-------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', function () {
-  var siteNav = new _modules_StickyNav__WEBPACK_IMPORTED_MODULE_3__["default"]('#site-header');
-  siteNav.init();
-  var accordionBase = new _modules_Accordions__WEBPACK_IMPORTED_MODULE_9__["default"]('[accordion="theme-base"]');
-  accordionBase.init();
-  var accordionGreen = new _modules_Accordions__WEBPACK_IMPORTED_MODULE_9__["default"]('[accordion="theme-green"]');
-  accordionGreen.init();
-  var tabsBase = new _modules_Tabs__WEBPACK_IMPORTED_MODULE_10__["default"]('[tabs="theme-base"]');
-  tabsBase.init();
-  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_11__["default"])(); // tabsInit();
-  // parallaxInit();
-  // swiperServicesInit();
-
-  (0,_modules_cursorCustom__WEBPACK_IMPORTED_MODULE_5__["default"])(); // navMobileInit();
-  // aosInit();
-  // lazyImagesInit();
-  // debugInit();
+  (0,_debug_index__WEBPACK_IMPORTED_MODULE_2__["default"])();
 });
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/Accordions.js":
-/*!**********************************************!*\
-  !*** ./assets/scripts/modules/Accordions.js ***!
-  \**********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Accordions; }
-/* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Accordions = /*#__PURE__*/function () {
-  function Accordions(selector) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var isDebug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-    _classCallCheck(this, Accordions);
-
-    this.selector = selector;
-    this.element = document.querySelectorAll(this.selector);
-    this.options = options;
-    this.isDebug = isDebug;
-    this.hashTag = window.location.hash;
-  }
-
-  _createClass(Accordions, [{
-    key: "checkHashTag",
-    value: function checkHashTag(el) {
-      if (el) {
-        var component = el.closest(this.selector);
-
-        if (component) {
-          var button = el;
-          var content = component.querySelector('[accordion-content]');
-          content.style.setProperty('--max-height', "".concat(content.scrollHeight, "px"));
-          component.classList.add('is-active');
-          button.setAttribute('aria-expanded', 'true');
-          content.setAttribute('aria-hidden', 'false');
-          el.scrollIntoView({
-            block: 'start',
-            behavior: 'smooth',
-            inline: 'nearest'
-          });
-        }
-      }
-    }
-  }, {
-    key: "init",
-    value: function init() {
-      if (this.hashTag) {
-        var elHash = document.querySelector(this.hashTag);
-        this.checkHashTag(elHash);
-      }
-
-      this.element.forEach(function (component) {
-        var button = component.querySelector('[accordion-button]');
-        var content = component.querySelector('[accordion-content]');
-
-        if (component.classList.contains('is-active')) {
-          button.setAttribute('aria-expanded', 'true');
-          content.setAttribute('aria-hidden', 'false');
-        }
-
-        button.addEventListener('click', function (e) {
-          e.preventDefault();
-
-          if (component.classList.contains('is-active')) {
-            component.classList.remove('is-active');
-            button.setAttribute('aria-expanded', 'false');
-            content.setAttribute('aria-hidden', 'true');
-          } else {
-            content.style.setProperty('--max-height', "".concat(content.scrollHeight, "px"));
-            component.classList.add('is-active');
-            button.setAttribute('aria-expanded', 'true');
-            content.setAttribute('aria-hidden', 'false');
-          }
-        });
-      });
-    }
-  }]);
-
-  return Accordions;
-}();
-
-
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/StickyNav.js":
-/*!*********************************************!*\
-  !*** ./assets/scripts/modules/StickyNav.js ***!
-  \*********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ StickyNav; }
-/* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var StickyNav = /*#__PURE__*/function () {
-  function StickyNav(selector) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var isDebug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-    _classCallCheck(this, StickyNav);
-
-    this.selector = selector;
-    this.element = document.querySelector(this.selector);
-    this.options = options;
-    this.isDebug = isDebug;
-    this.lastTop = document.documentElement.scrollTop;
-    this.top = null;
-  }
-
-  _createClass(StickyNav, [{
-    key: "init",
-    value: function init() {
-      var _this = this;
-
-      this.top = document.documentElement.scrollTop;
-      this.lastTop = this.top;
-      setTimeout(function () {
-        _this.onScroll();
-      }, 1);
-    }
-  }, {
-    key: "onScroll",
-    value: function onScroll() {
-      var _this2 = this;
-
-      this.top = document.documentElement.scrollTop;
-
-      if (this.top !== this.lastTop) {
-        if (this.top <= 0) {
-          this.element.classList.remove('is-fixed');
-          this.element.classList.add('is-top');
-        } else {
-          this.element.classList.remove('is-top');
-        }
-
-        if (this.top > this.lastTop && this.top > 0) {
-          this.element.classList.remove('is-top');
-          this.element.classList.add('is-fixed');
-        }
-      }
-
-      this.lastTop = document.documentElement.scrollTop;
-      requestAnimationFrame(function () {
-        return _this2.onScroll();
-      });
-    }
-  }]);
-
-  return StickyNav;
-}();
-
-
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/Tabs.js":
-/*!****************************************!*\
-  !*** ./assets/scripts/modules/Tabs.js ***!
-  \****************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Tabs; }
-/* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Tabs = /*#__PURE__*/function () {
-  function Tabs(selector) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var isDebug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-    _classCallCheck(this, Tabs);
-
-    this.selector = selector;
-    this.elComponent = document.querySelectorAll(this.selector);
-    this.options = options;
-    this.isDebug = isDebug;
-    this.hashTag = window.location.hash;
-  } // eslint-disable-next-line class-methods-use-this
-
-
-  _createClass(Tabs, [{
-    key: "updateTab",
-    value: function updateTab(id, el) {
-      var elComponent = el.closest('[tabs]');
-      var elAllTabsButtons = elComponent.querySelectorAll('[tabs-button]');
-      var elAllTabsContent = elComponent.querySelectorAll('[tabs-content]');
-      var elActiveButton = elComponent.querySelector("[data-button-index=\"".concat(id, "\"]"));
-      var elActiveContent = elComponent.querySelector("[data-content-index=\"".concat(id, "\"]"));
-      var tabsSelect = elComponent.querySelector('[tabs-select]');
-      /* buttons */
-
-      elAllTabsButtons.forEach(function (button) {
-        button.classList.remove('is-active');
-        button.setAttribute('aria-selected', 'false');
-      });
-      elActiveButton.classList.add('is-active');
-      elActiveButton.setAttribute('aria-selected', 'true');
-      /* content */
-
-      elAllTabsContent.forEach(function (content) {
-        content.classList.remove('is-active');
-        content.setAttribute('aria-hidden', 'true');
-      });
-      elActiveContent.classList.add('is-active');
-      elActiveContent.setAttribute('aria-hidden', 'false');
-      tabsSelect.selectedIndex = id - 1;
-    }
-  }, {
-    key: "init",
-    value: function init() {
-      var _this = this;
-
-      this.elComponent.forEach(function (elComponent) {
-        var tabsButtons = elComponent.querySelectorAll('[tabs-button]');
-        var tabsSelect = elComponent.querySelector('[tabs-select]');
-
-        if (tabsButtons.length > 0) {
-          tabsSelect.addEventListener('change', function (e) {
-            var value = e.target.value;
-            var el = e.currentTarget;
-
-            _this.updateTab(value, el);
-          });
-          tabsButtons.forEach(function (button) {
-            button.addEventListener('click', function (e) {
-              e.preventDefault();
-              var el = e.currentTarget;
-
-              if (!el.classList.contains('is-active')) {
-                var id = el.dataset.buttonIndex;
-
-                _this.updateTab(id, el);
-              }
-            });
-          });
-
-          _this.updateTab(1, tabsButtons[0]);
-        }
-      });
-    }
-  }]);
-
-  return Tabs;
-}();
-
-
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/animationOnScroll.js":
-/*!*****************************************************!*\
-  !*** ./assets/scripts/modules/animationOnScroll.js ***!
-  \*****************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ aosInit; }
-/* harmony export */ });
-/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
-/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_0__);
-
-function aosInit() {
-  aos__WEBPACK_IMPORTED_MODULE_0___default().init({
-    disable: function disable() {
-      return window.innerWidth < 1024;
-    },
-    startEvent: 'DOMContentLoaded',
-    // name of the event dispatched on the document, that AOS should initialize on
-    initClassName: 'aos-init',
-    // class applied after initialization
-    animatedClassName: 'aos-animate',
-    // class applied on animation
-    useClassNames: false,
-    // if true, will add content of `data-aos` as classes on scroll
-    disableMutationObserver: false,
-    // disables automatic mutations' detections (advanced)
-    debounceDelay: 50,
-    // the delay on debounce used while resizing window (advanced)
-    throttleDelay: 99,
-    // the delay on throttle used while scrolling the page (advanced)
-    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-    offset: 200,
-    // offset (in px) from the original trigger point
-    delay: 0,
-    // values from 0 to 3000, with step 50ms
-    duration: 400,
-    // values from 0 to 3000, with step 50ms
-    easing: 'ease-out',
-    // default easing for AOS animations
-    once: true,
-    // whether animation should happen only once - while scrolling down
-    mirror: false,
-    // whether elements should animate out while scrolling past them
-    anchorPlacement: 'top-bottom' // defines which position of the element regarding to window should trigger the animation
-
-  }); // https://github.com/michalsnik/aos/issues/135
-
-  window.addEventListener('load', function () {
-    aos__WEBPACK_IMPORTED_MODULE_0___default().refresh();
-  });
-}
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/cursorCustom.js":
-/*!************************************************!*\
-  !*** ./assets/scripts/modules/cursorCustom.js ***!
-  \************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ cursorCustomInit; }
-/* harmony export */ });
-function cursorCustomInit() {
-  var cursor = document.querySelector('[custom-cursor]');
-  var links = document.querySelectorAll('a, button');
-
-  if (links && cursor) {
-    document.addEventListener('mousemove', function (e) {
-      var x = e.clientX;
-      var y = e.clientY;
-      cursor.style.left = "".concat(x, "px");
-      cursor.style.top = "".concat(y, "px");
-    });
-    document.addEventListener('mousedown', function () {
-      cursor.classList.add('is-click');
-    });
-    document.addEventListener('mouseup', function () {
-      cursor.classList.remove('is-click');
-    });
-    links.forEach(function (item) {
-      item.addEventListener('mouseover', function () {
-        cursor.classList.add('is-hover');
-      });
-      item.addEventListener('mouseleave', function () {
-        cursor.classList.remove('is-hover');
-      });
-    });
-  }
-}
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/lazyImages.js":
-/*!**********************************************!*\
-  !*** ./assets/scripts/modules/lazyImages.js ***!
-  \**********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ lazyImagesInit; }
-/* harmony export */ });
-function lazyImagesInit() {
-  var lazyloadImages;
-  var lazyloadThrottleTimeout;
-  /* funciton
-  -------------------------------------------- */
-
-  function lazyload() {
-    if (lazyloadThrottleTimeout) {
-      clearTimeout(lazyloadThrottleTimeout);
-    }
-
-    lazyloadThrottleTimeout = setTimeout(function () {
-      lazyCheck();
-    }, 20);
-  }
-
-  function lazyCheck() {
-    var scrollTop = window.pageYOffset;
-    lazyloadImages.forEach(function (img) {
-      if (img.offsetTop < window.innerHeight + scrollTop) {
-        img.src = img.dataset.src;
-        img.classList.remove('lazy');
-      }
-    });
-
-    if (lazyloadImages.length === 0) {
-      document.removeEventListener('scroll', lazyload);
-      window.removeEventListener('resize', lazyload);
-      window.removeEventListener('orientationChange', lazyload);
-    }
-  }
-  /* init
-    -------------------------------------------- */
-
-
-  if ('IntersectionObserver' in window) {
-    lazyloadImages = document.querySelectorAll('.lazy');
-    var imageObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var image = entry.target;
-          image.src = image.dataset.src;
-          image.classList.remove('lazy');
-          imageObserver.unobserve(image);
-        }
-      });
-    });
-    lazyloadImages.forEach(function (image) {
-      imageObserver.observe(image);
-    });
-  } else {
-    lazyloadImages = document.querySelectorAll('.lazy');
-    document.addEventListener('scroll', lazyload);
-    window.addEventListener('resize', lazyload);
-    window.addEventListener('orientationChange', lazyload);
-  }
-}
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/modal.js":
-/*!*****************************************!*\
-  !*** ./assets/scripts/modules/modal.js ***!
-  \*****************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ modalInit; }
-/* harmony export */ });
-function modalInit() {
-  /* variables
-  -------------------------------------------- */
-  var elHtml = document.querySelector('html');
-  var elModals = document.querySelectorAll('[modal]');
-  var elButtonsTrigger = document.querySelectorAll('[modal-trigger]');
-  var elButtonsClose = document.querySelectorAll('[modal-close]');
-  var elModalActive = null;
-  var elModalOverlay = null;
-  var awaitAnimation = false;
-  /* function
-  -------------------------------------------- */
-
-  function removeClass() {
-    elModals.forEach(function (el, index) {
-      el.classList.remove('is-active');
-      el.classList.remove('animation-in');
-      el.classList.remove('animation-out');
-    });
-  }
-
-  function resetState() {
-    elModalActive = null;
-    elModalOverlay = null;
-    awaitAnimation = false;
-  }
-
-  function modalClose() {
-    elModalActive.classList.add('animation-out');
-
-    var animationOut = function animationOut() {
-      elModalOverlay.removeEventListener('animationend', animationOut);
-      elHtml.classList.remove('no-scroll');
-      resetState();
-      removeClass();
-    };
-
-    elModalOverlay.addEventListener('animationend', animationOut, false);
-  }
-
-  function modalKeyUp(e) {
-    var key = e.which || e.keyCode;
-
-    if (key === 27 && elModalActive !== null) {
-      modalClose();
-    }
-  }
-  /* init
-  -------------------------------------------- */
-
-
-  elButtonsTrigger.forEach(function (el, index) {
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      var id = el.getAttribute('href');
-
-      if (!awaitAnimation) {
-        removeClass();
-        elModalActive = document.querySelector("#".concat(id));
-        elModalOverlay = elModalActive.querySelector('[modal-overlay]');
-        elModalActive.classList.add('is-active');
-        elHtml.classList.add('no-scroll');
-        setTimeout(function () {
-          elModalActive.classList.add('animation-in');
-          awaitAnimation = true;
-        }, 1);
-
-        var animationIn = function animationIn() {
-          elModalOverlay.removeEventListener('animationend', animationIn);
-          awaitAnimation = false;
-        };
-
-        elModalOverlay.addEventListener('animationend', animationIn, false);
-      }
-    });
-  });
-  elButtonsClose.forEach(function (el, index) {
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      modalClose();
-    });
-  });
-  document.addEventListener('keyup', modalKeyUp);
-}
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/navMobile.js":
-/*!*********************************************!*\
-  !*** ./assets/scripts/modules/navMobile.js ***!
-  \*********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ navMobileInit; }
-/* harmony export */ });
-function navMobileInit() {
-  var $html = document.querySelector('html');
-  var $hamburger = document.querySelectorAll('.hamburger');
-  var $navMobile = document.querySelector('#site-nav-mobile');
-  $hamburger.forEach(function ($element, index) {
-    $element.addEventListener('click', function (e) {
-      e.preventDefault();
-      var $hamburgerHeader = document.querySelector('#site-header .hamburger');
-      var $hamburgerNavMobile = document.querySelector('#site-nav-mobile .hamburger');
-      $navMobile.classList.toggle('is-active');
-      $html.classList.toggle('no-scroll');
-
-      if ($navMobile.classList.contains('is-active')) {
-        $hamburgerHeader.classList.add('is-active');
-        $hamburgerNavMobile.classList.add('is-active');
-      } else {
-        $hamburgerHeader.classList.remove('is-active');
-        $hamburgerNavMobile.classList.remove('is-active');
-      }
-    });
-  });
-}
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/parallax.js":
-/*!********************************************!*\
-  !*** ./assets/scripts/modules/parallax.js ***!
-  \********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ parallaxInit; }
-/* harmony export */ });
-/* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rellax */ "./node_modules/rellax/rellax.js");
-/* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rellax__WEBPACK_IMPORTED_MODULE_0__);
-
-function parallaxInit() {
-  var elRellax = document.querySelectorAll('.rellax');
-
-  if (elRellax.length) {
-    var rellax = new (rellax__WEBPACK_IMPORTED_MODULE_0___default())('.rellax', {
-      speed: -2,
-      center: false,
-      wrapper: null,
-      round: true,
-      vertical: true,
-      horizontal: false
-    });
-  }
-}
-
-/***/ }),
-
-/***/ "./assets/scripts/modules/swiperServices.js":
-/*!**************************************************!*\
-  !*** ./assets/scripts/modules/swiperServices.js ***!
-  \**************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ swiperServicesInit; }
-/* harmony export */ });
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.esm.js");
-/* harmony import */ var swiper_css_bundle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/css/bundle */ "./node_modules/swiper/swiper-bundle.min.css");
-/* harmony import */ var swiper_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper/css */ "./node_modules/swiper/swiper.min.css");
-// import Swiper bundle with all modules installed
- // import styles bundle
-
- // import Swiper styles
-
-
-function swiperServicesInit() {
-  var isSmall = window.matchMedia('(min-width: 0px) and (max-width: 768px)');
-  var elSlider = document.querySelector('.swiper-services');
-  var elSection;
-  var swiper = null;
-
-  function init() {
-    if (swiper === null) {
-      swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](elSlider, {
-        spaceBetween: 20,
-        speed: 500,
-        slidesPerView: 1.2,
-        slidesPerGroupAuto: 'auto',
-        allowTouchMove: true,
-        navigation: {
-          prevEl: elSection.querySelector('.swiper-button-arrow--prev'),
-          nextEl: elSection.querySelector('.swiper-button-arrow--next')
-        }
-      });
-    }
-  }
-
-  function check() {
-    if (!isSmall.matches) {
-      if (swiper) {
-        swiper.destroy(true, true);
-      }
-
-      swiper = null;
-    } else if (isSmall.matches) {
-      init();
-    }
-  }
-
-  if (elSlider) {
-    elSection = elSlider.closest('[data-slider="services"]');
-
-    if (isSmall.matches) {
-      init();
-    }
-
-    window.addEventListener('resize', function () {
-      check();
-    });
-    check();
-  }
-}
 
 /***/ }),
 
