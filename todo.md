@@ -1,74 +1,60 @@
 # A faire
 Façon de faire, exemple : grid use gap
 
+# CSS
 
+- [ ] Gestion fonts-size/scaling : clamp, rem update root font-size breakpoints ?
+- [x] Container : padding px + width fluid
+- [x] ratio iframe ( aspect-ratio )
+- [ ] Plugins placeholdeer content ? https://github.com/javisperez/tailwindcontentplaceholder
 
 ## Objects
+
 - [x] button
-
 - [x] link
-
 - [x] liste
-
 - [x] container
-
 - [x] Custom scrollbar
-
 - [x] Mardown
-
 - [x] Heading
-
 - [x] Surtitle
-
 - [x] Form
-
 - [x] tag-badge
-
 - [ ] icons (svg)
-
-  
 
 ## Components
 
+# Alpine
 
-
-## JavaScript
-
-- [ ] Sticky
-- [ ] Tab
+- [ ] Modal avec x-teleport
+- [ ] NavMoible avec ou sans x-teleport
+- [ ] tab
+- [ ] Sticky nav ( header )
 - [ ] Accordeon
-- [ ] Nav mobile
+- [ ] nav sticky
+
+# JavaScript
+
 - [ ] Slider
 - [x] Custom cursor
-- [ ] Gestion mobile
-- [ ] Animation on Scroll
-- [ ] Scroll momentum
+- [x] Gestion mobile ( css var de tw )
+- [ ] Animation on Scroll ( gsap scrollTrigger vs AOS + js event)
 - [ ] listbox
 - [ ] pop over
-- [ ] custom upload file
-- [ ] marquee
-- [ ] nav sticky
-- [ ] Modal
+- [ ] custom upload file ( refaire )
+- [ ] marquee ( tag marque vs js vs css) 
 - [ ] scroll spy
 - [ ] tooltip
 - [ ] dropdown
 - [ ] lazy loading
 
+- [x] Debug media query
+- [x] Debug grid
+- [ ] 
 
-
-## Misc
-
-- [ ] Debug media query
-- [ ] Debug grid
-- [ ] ratio iframe
-
-
-
-
-## Maybe
+# Maybe
 
 - [ ] loader
-
 - [ ] icon svg
 
   

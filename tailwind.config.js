@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
 // tailwind.config.js
 const defaultTheme = require('tailwindcss/defaultTheme');
-const spacingUnits = require('./assets/tailwindcss/units/generateUnitByMultiplicator')(5, 200);
-const fontSizeUnit = require('./assets/tailwindcss/units/generateUnitByMultiplicator')(2, 75);
+const spacingUnits = require('./assets/tailwindcss/units/generateUnitByMultiplicator')(5, 100);
+const fontSizeUnit = require('./assets/tailwindcss/units/generateUnitByMultiplicator')(2, 50);
 
 module.exports = {
   mode: 'jit',
@@ -48,22 +48,31 @@ module.exports = {
     },
     borderRadius: {
       none: '0',
-      base: '8px',
+      base: '20px',
       full: '9999px',
     },
     container: {
-      860: '860px',
-      1000: '1000px',
-      1060: '1060px',
-      1100: '1100px',
-      1280: '1280px',
-      1360: '1360px',
-      1380: '1380px',
-      1660: '1660px',
-      1920: '1920px',
+      spacing: {
+        sm: '20px',
+        md: '30px',
+        xl: '60px',
+        '3xl': '120px',
+      },
+      units: {
+        860: '860px',
+        1000: '1000px',
+        1060: '1060px',
+        1100: '1100px',
+        1280: '1280px',
+        1360: '1360px',
+        1380: '1380px',
+        1660: '1660px',
+        1920: '1920px',
+        fluid: '100%',
+      },
     },
     screens: {
-      xs: '400px',
+      xs: '375px',
       sm: '500px',
       md: '768px',
       lg: '1024px',

@@ -1,5 +1,5 @@
-import { isDev } from '@debug/helper';
-import GridVisualizer from '@debug/GridVisualizer';
+import { isDev } from './helper';
+import GridVisualizer from './GridVisualizer';
 
 export default function debugInit() {
   if (isDev) {
@@ -8,8 +8,8 @@ export default function debugInit() {
     const websiteGrid = new GridVisualizer({
       numberColumns: 12,
       containerCSsClass: 'container-1100-px',
-      rowCssClass: 'flex -mx-2',
-      columnsCssClass: 'px-2 w-1/12',
+      rowCssClass: 'flex gap-x-4',
+      columnsCssClass: 'w-1/12',
       columnsCssClassCustom: null,
     });
     websiteGrid.init();

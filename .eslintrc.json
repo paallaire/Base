@@ -1,34 +1,19 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true
+      "browser": true,
+      "es2021": true
     },
+    "plugins": ["tailwindcss"],
     "extends": [
-        "airbnb-base"
+      "airbnb-base",
+      "plugin:tailwindcss/recommended"
     ],
     "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
+      "ecmaVersion": 12,
+      "sourceType": "module"
     },
     "rules": {},
-    "settings": {
-        "import/resolver": {
-            "alias": {
-                "map": [
-                    [
-                        "@modules",
-                        "./assets/scripts/modules"
-                    ],
-                    [
-                        "@debug",
-                        "./assets/scripts/debug"
-                    ]
-                ],
-                "extensions": [
-                    ".js",
-                    ".vue"
-                ]
-            }
-        }
-    }
-}
+    "settings": {}
+  }
+  
+  

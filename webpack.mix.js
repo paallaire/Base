@@ -4,11 +4,6 @@ require('dotenv').config();
 const srcPath = 'assets';
 const publicPath = 'dist';
 
-mix.alias({
-  '@modules': './assets/scripts/modules/',
-  '@debug': './assets/scripts/debug',
-});
-
 mix.setPublicPath(publicPath)
   .js(`${srcPath}/scripts/main.js`, 'scripts')
   .sass(`${srcPath}/styles/main.scss`, 'styles')

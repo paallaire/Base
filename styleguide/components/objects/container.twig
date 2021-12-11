@@ -1,0 +1,42 @@
+{% set styles = [       
+  'container-860',
+  'container-1000',
+  'container-1060',
+  'container-1100',
+  'container-1280',
+  'container-1360',
+  'container-1380',
+  'container-1660',
+  'container-1920'
+] %}
+
+{% set stylesWithPadding = [       
+  'container-860-px',
+  'container-1000-px',
+  'container-1060-px',
+  'container-1100-px',
+  'container-1280-px',
+  'container-1360-px',
+  'container-1380-px',
+  'container-1660-px',
+  'container-1920-px',
+  'container-fluid-px'
+] %}
+
+<div class="sg-container-padding">
+
+  <div class="sg-title">Container</div>
+
+  <div class="space-y-10">
+    {% for style in styles %}
+      <div class="bg-blue-1 text-white h2 {{ style }}  py-4 text-center ">{{ style }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="mt-10 space-y-10">
+    {% for style in stylesWithPadding %}
+      <div class="bg-green-1 h2 py-4 text-center text-white {{ style }}">{{ style }}</div>
+    {% endfor %}
+  </div>
+
+</div>

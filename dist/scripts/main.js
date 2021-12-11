@@ -230,18 +230,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ debugInit; }
 /* harmony export */ });
-/* harmony import */ var _debug_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @debug/helper */ "./assets/scripts/debug/helper.js");
-/* harmony import */ var _debug_GridVisualizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @debug/GridVisualizer */ "./assets/scripts/debug/GridVisualizer.js");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper */ "./assets/scripts/debug/helper.js");
+/* harmony import */ var _GridVisualizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GridVisualizer */ "./assets/scripts/debug/GridVisualizer.js");
 
 
 function debugInit() {
-  if (_debug_helper__WEBPACK_IMPORTED_MODULE_0__.isDev) {
+  if (_helper__WEBPACK_IMPORTED_MODULE_0__.isDev) {
     document.querySelector('body').classList.add('debug', 'debug-screens');
-    var websiteGrid = new _debug_GridVisualizer__WEBPACK_IMPORTED_MODULE_1__["default"]({
+    var websiteGrid = new _GridVisualizer__WEBPACK_IMPORTED_MODULE_1__["default"]({
       numberColumns: 12,
       containerCSsClass: 'container-1100-px',
-      rowCssClass: 'flex -mx-2',
-      columnsCssClass: 'px-2 w-1/12',
+      rowCssClass: 'flex gap-x-4',
+      columnsCssClass: 'w-1/12',
       columnsCssClassCustom: null
     });
     websiteGrid.init();
@@ -261,13 +261,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_stable__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @debug/index */ "./assets/scripts/debug/index.js");
-/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./debug/index */ "./assets/scripts/debug/index.js");
 /* harmony import */ var _alpine_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./alpine/modal */ "./assets/scripts/alpine/modal.js");
 /* harmony import */ var _alpine_navMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./alpine/navMobile */ "./assets/scripts/alpine/navMobile.js");
 /* harmony import */ var _alpine_accordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./alpine/accordion */ "./assets/scripts/alpine/accordion.js");
 /* eslint-disable import/no-extraneous-dependencies */
 // polyfill only stable `core-js` features - ES and web standards:
+
 
 
 
@@ -277,17 +278,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].data('modal', _alpine_modal__WEBPACK_IMPORTED_MODULE_4__["default"]);
-alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].data('navMobile', _alpine_navMobile__WEBPACK_IMPORTED_MODULE_5__["default"]);
-alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].data('accordion', _alpine_accordion__WEBPACK_IMPORTED_MODULE_6__["default"]);
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].start();
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data('modal', _alpine_modal__WEBPACK_IMPORTED_MODULE_4__["default"]);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data('navMobile', _alpine_navMobile__WEBPACK_IMPORTED_MODULE_5__["default"]);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data('accordion', _alpine_accordion__WEBPACK_IMPORTED_MODULE_6__["default"]);
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].start();
 /* Custom javascript
 -------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', function () {
-  (0,_debug_index__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  (0,_debug_index__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
 
 /***/ }),

@@ -4,27 +4,38 @@ module.exports = function ({
   addComponents, e, theme, variants,
 }) {
   const container = theme('container', {});
-  const components = _.map(container, (value, name) => ({
+  const screens = theme('screens', {});
+  const components = _.map(container.units, (value, name) => ({
+
     [`.${e(`container-${name}`)}`]: {
       maxWidth: `${value}`,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+
     [`.${e(`container-${name}-px`)}`]: {
       maxWidth: `${value}`,
       marginLeft: 'auto',
       marginRight: 'auto',
-      paddingLeft: theme('spacing.4'),
-      paddingRight: theme('spacing.4'),
+      paddingLeft: theme('container.spacing.sm'),
+      paddingRight: theme('container.spacing.sm'),
 
-      '@media (min-width: 1024px)': {
-        paddingLeft: theme('spacing.6'),
-        paddingRight: theme('spacing.6'),
+      // md
+      [`@media (min-width: ${screens.md})`]: {
+        paddingLeft: theme('container.spacing.md'),
+        paddingRight: theme('container.spacing.md'),
       },
 
-      '@media (min-width: 1440px)': {
-        paddingLeft: theme('spacing.8'),
-        paddingRight: theme('spacing.8'),
+      // xl
+      [`@media (min-width: ${screens.xl})`]: {
+        paddingLeft: theme('container.spacing.xl'),
+        paddingRight: theme('container.spacing.xl'),
+      },
+
+      // 3xl
+      [`@media (min-width: ${screens['3xl']})`]: {
+        paddingLeft: theme('container.spacing.3xl'),
+        paddingRight: theme('container.spacing.3xl'),
       },
 
     },

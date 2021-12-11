@@ -4,11 +4,11 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-import debugInit from '@debug/index';
+import Alpine from 'alpinejs';
+import debugInit from './debug/index';
 
 /* Alpine
 -------------------------------------------- */
-import Alpine from 'alpinejs';
 
 import modal from './alpine/modal';
 import navMobile from './alpine/navMobile';

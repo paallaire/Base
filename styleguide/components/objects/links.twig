@@ -1,13 +1,13 @@
-{% set styles = ['badge--orange', 'badge--green', 'badge--blue'] %}
+{% set styles = ['link--primary', 'link--secondary', 'link--orange'] %}
 
 <div class="sg-container-padding">
 
-  <div class="sg-title">Badge bordered</div>
+  <div class="sg-title">Link</div>
 
   <ul class="space-x-4 flex">
     {% for style in styles %}
       <li>
-        <a href="" class="{{ "badge " ~ style }}">
+        <a href="" class="{{ 'link ' ~ style }}">
           <span>{{ style }}</span>
         </a>
       </li>

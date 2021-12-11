@@ -1,0 +1,20 @@
+{% set styles = ['link-decoration--primary', 'link-decoration--secondary', 'link-decoration--orange'] %}
+
+<div class="sg-container-padding">
+
+  <div class="sg-title">Link</div>
+  <p class="sg-note">
+    <a class="underline" href="https://tailwindcss.com/docs/text-decoration-color">Changement à faire pour tailwindcss 3</a>
+  </p>
+
+  <ul class="space-x-4 flex">
+    {% for style in styles %}
+      <li>
+        <a href="" class="{{ 'link-decoration ' ~ style }}">
+          <span>{{ style }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>

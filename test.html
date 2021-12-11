@@ -1,0 +1,22 @@
+<div class="bg-blue-1 h2 py-4 text-center text-white">hello</div>
+
+<div class="sg-container-padding">
+
+  <div class="space-y-10">
+    {% for style in styles %}
+    <div class="bg-blue-1 h2  py-4 text-center text-white">{{ style }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="mt-10 space-y-10">
+    {% for style in stylesWithPadding %}
+    <div class="bg-green-1 h2 py-4 text-center text-white {{ style }}">{{ style }}</div>
+    {% endfor %}
+  </div>
+
+</div>
+
+<div class="px-10 px-20"></div>
+
+
+<div class="rounded sm:rounded-lg lg:rounded-2xl p-4 sm:p-6 lg:p-8">...</div>

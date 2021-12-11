@@ -8,6 +8,9 @@
 }
 
 .sg-title {
-  @extend %heading;
-  @apply text-10 font-bold my-4;
+  @apply text-20 font-bold my-4 text-blue-1;
+}
+
+.sg-note {
+  @apply text-8 font-semibold my-4 p-4 border-solid border-current border-b bg-red-1 text-white;
 }
