@@ -1,7 +1,6 @@
 {
-  "name": "mutation",
-  "version": "1.0.0",
-  "description": "",
+  "name": "paallaire",
+  "version": "0.0.1",
   "scripts": {
     "dev": "mix",
     "gulp-watch": "gulp watch",
@@ -16,7 +15,6 @@
     "eslint": "eslint styleguide/**/*.twig"
   },
   "devDependencies": {
-    "@downwindcss/easings": "^1.0.4",
     "@frctl/fractal": "^1.5.11",
     "@frctl/twig": "^1.2.11",
     "browser-sync-webpack-plugin": "^2.3.0",
@@ -36,7 +34,6 @@
   },
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/polyfill": "^7.12.1",
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/line-clamp": "^0.2.2",

@@ -1,0 +1,42 @@
+<div class="sg-container-padding">
+
+  <div class="sg-title">NavMobile</div>
+
+  <div class="p-4">
+    <button class="hamburger hamburger--slider c-header__burger" data-trigger-nav-mobile="site" type="button" x-data x-on:click="$dispatch('navMobile:open', 'site');">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+
+  </div>
+
+</div>
+
+<div class="c-nav-mobile" x-cloak x-data="navMobile('site')" x-show="isOpen" x-transition:enter="transition ease-out duration-500" x-transition:enter-end="translate-x-0" x-transition:enter-start="-translate-x-full" x-transition:leave="transition ease-out duration-500" x-transition:leave-end="-translate-x-full" x-transition:leave-start="translate-x-0">
+
+  <div class="flex">
+    <p>Page title</p>
+
+    <div class="flex items-center ml-auto">
+
+      <button class="hamburger hamburger--slider c-header__burger" data-trigger-nav-mobile="site" type="button" x-data x-on:click="$dispatch('navMobile:close', 'site');">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+    </div>
+  </div>
+
+  <ul class="mt-10 space-y-3">
+    {% for item in 0..5 %}
+      <li>
+        <a href="">
+          <span>Lorem...</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>

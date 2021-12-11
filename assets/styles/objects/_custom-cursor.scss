@@ -1,4 +1,4 @@
-[data-module="custom-cursor"] {
+.js-custom-cursor {
   @apply w-6 h-6 rounded-full fixed -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[1000] bg-[#fd8e3d] transition duration-200 ease-in;
 
   &.is-hover {

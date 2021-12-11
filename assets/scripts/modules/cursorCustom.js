@@ -1,6 +1,7 @@
 export default function cursorCustomInit() {
   const links = document.querySelectorAll('a, button');
-  const elCustomCursor = document.createElement('div');
+  const elCustomCursor = document.querySelector('.js-custom-cursor');
+  console.log('elCustomCursor:', elCustomCursor);
   elCustomCursor.setAttribute('data-module', 'custom-cursor');
   document.body.appendChild(elCustomCursor);
 

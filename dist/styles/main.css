@@ -582,13 +582,6 @@ video {
 	--tw-scale-y: 1;
 	--tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 	border-color: currentColor;
-	--tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
-	--tw-ring-offset-width: 0px;
-	--tw-ring-offset-color: #fff;
-	--tw-ring-color: rgba(59, 130, 246, 0.5);
-	--tw-ring-offset-shadow: 0 0 #0000;
-	--tw-ring-shadow: 0 0 #0000;
-	--tw-shadow: 0 0 #0000;
 }
 
 .form-input,.form-textarea,.form-select,.form-multiselect {
@@ -739,6 +732,53 @@ video {
 }
 /* hamburger
 -------------------------------------------- */
+/* grid-visualizer
+-------------------------------------------- */
+.dev-grid-visualizer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	height: 100%;
+	width: 100%;
+}
+.dev-grid-visualizer.is-active {
+	display: block;
+}
+.dev-grid-visualizer__row, .dev-grid-visualizer__container {
+	height: 100%;
+}
+.dev-grid-visualizer__container {
+	margin-left: auto;
+	margin-right: auto;
+}
+.dev-grid-visualizer__column {
+	height: 100%;
+}
+.dev-grid-visualizer__block {
+	height: 100%;
+  background-color: cadetblue;
+  opacity: 0.5;
+}
+.dev-grid-visualizer-toggle {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	--tw-bg-opacity: 1;
+	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+	line-height: 1;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+  padding: 0.3333333em 0.5em;
+  font-size: 0.75rem;
+  font-family: sans-serif;
+  z-index: 2000;
+}
+.dev-grid-visualizer-toggle:hover {
+  background: #aaa;
+}
+
 /* base
 // -------------------------------------------- */
 .scrollbar {
@@ -797,53 +837,6 @@ body {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	font-family: Inter, sans-serif;
-}
-
-/* grid-visualizer
--------------------------------------------- */
-.dev-grid-visualizer {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1000;
-	display: none;
-	height: 100%;
-	width: 100%;
-}
-.dev-grid-visualizer.is-active {
-	display: block;
-}
-.dev-grid-visualizer__row, .dev-grid-visualizer__container {
-	height: 100%;
-}
-.dev-grid-visualizer__container {
-	margin-left: auto;
-	margin-right: auto;
-}
-.dev-grid-visualizer__column {
-	height: 100%;
-}
-.dev-grid-visualizer__block {
-	height: 100%;
-  background-color: cadetblue;
-  opacity: 0.5;
-}
-.dev-grid-visualizer-toggle {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	--tw-bg-opacity: 1;
-	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-	line-height: 1;
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
-  padding: 0.3333333em 0.5em;
-  font-size: 0.75rem;
-  font-family: sans-serif;
-  z-index: 2000;
-}
-.dev-grid-visualizer-toggle:hover {
-  background: #aaa;
 }
 
 .link-decoration, .link, .btn-bordered, .btn, .t-opacity, .t-base {
@@ -2085,8 +2078,6 @@ https://tailwindcss.com/docs/text-decoration-color tailwindcss v3
 	color: rgba(249, 248, 244, var(--tw-text-opacity));
 }
 
-/* components
-// -------------------------------------------- */
 /* 
 Information
 https://github.com/tailwindlabs/tailwindcss-forms
@@ -2140,169 +2131,7 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	border-color: rgba(78, 149, 255, var(--tw-border-opacity));
 }
 
-/* base
--------------------------------------------- */
-[accordion=theme-base] [accordion-button] {
-	display: flex;
-	width: 100%;
-	align-items: center;
-	--tw-bg-opacity: 1;
-	background-color: rgba(26, 26, 36, var(--tw-bg-opacity));
-	padding: 20px;
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-[accordion=theme-base] [accordion-icon] {
-	margin-left: auto;
-	stroke: currentColor;
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-	transition-duration: 100ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-[accordion=theme-base] [accordion-content] {
-	max-height: 0;
-	overflow: hidden;
-	transition-property: max-height;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-	transition-duration: 300ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-  will-change: max-height;
-}
-[accordion=theme-base] [accordion-content-body] {
-	padding: 20px;
-}
-
-/* active */
-[accordion=theme-base].is-active [accordion-content] {
-  max-height: var(--max-height);
-}
-[accordion=theme-base].is-active [accordion-icon-open] {
-	display: block;
-}
-[accordion=theme-base].is-active [accordion-icon] {
-	--tw-rotate: 90deg;
-	transform: var(--tw-transform);
-}
-
-/* green
--------------------------------------------- */
-[accordion=theme-green] [accordion-button] {
-	display: flex;
-	width: 100%;
-	align-items: center;
-	--tw-bg-opacity: 1;
-	background-color: rgba(24, 170, 100, var(--tw-bg-opacity));
-	padding: 20px;
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-[accordion=theme-green] [accordion-icon] {
-	margin-left: auto;
-	stroke: currentColor;
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-	transition-duration: 100ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-[accordion=theme-green] [accordion-content] {
-	max-height: 0;
-	overflow: hidden;
-	transition-property: max-height;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-	transition-duration: 300ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-  will-change: max-height;
-}
-[accordion=theme-green] [accordion-content-body] {
-	padding: 20px;
-}
-
-/* active */
-[accordion=theme-green].is-active [accordion-content] {
-  max-height: var(--max-height);
-}
-[accordion=theme-green].is-active [accordion-icon-open] {
-	display: block;
-}
-[accordion=theme-green].is-active [accordion-icon] {
-	--tw-rotate: 90deg;
-	transform: var(--tw-transform);
-}
-
-/* base
--------------------------------------------- */
-[tabs=theme-base] [tabs-header] {
-	display: flex;
-}
-[tabs=theme-base] [tabs-header] > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-x-reverse: 0;
-	margin-right: calc(10px * var(--tw-space-x-reverse));
-	margin-left: calc(10px * calc(1 - var(--tw-space-x-reverse)));
-}
-[tabs=theme-base] [tabs-button].is-active {
-	--tw-bg-opacity: 1;
-	background-color: rgba(24, 170, 100, var(--tw-bg-opacity));
-}
-[tabs=theme-base] [tabs-content] {
-	display: none;
-}
-[tabs=theme-base] [tabs-content].is-active {
-	display: block;
-}
-
-[modal=theme-base] {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 100;
-}
-[modal=theme-base] [modal-wrapper] {
-	display: flex;
-	min-height: 100vh;
-	align-items: center;
-	justify-content: center;
-}
-[modal=theme-base] [modal-overlay] {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	cursor: pointer;
-	background-color: rgba(0, 0, 0, 0.6);
-}
-[modal=theme-base] [modal-content] {
-	position: relative;
-	z-index: 100;
-	max-height: 80vh;
-	width: 100%;
-	max-width: 500px;
-	overflow: hidden;
-	overflow-y: visible;
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding: 25px;
-}
-[modal=theme-base] h2:focus {
-  border: 10px solid red;
-}
-
-[data-module=custom-cursor] {
+.js-custom-cursor {
 	pointer-events: none;
 	position: fixed;
 	z-index: 1000;
@@ -2323,46 +2152,24 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	transition-duration: 200ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
-[data-module=custom-cursor].is-hover {
+.js-custom-cursor.is-hover {
 	--tw-scale-x: 33%;
 	--tw-scale-y: 33%;
 	transform: var(--tw-transform);
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 53, 6, var(--tw-bg-opacity));
 }
-[data-module=custom-cursor].is-click {
+.js-custom-cursor.is-click {
 	--tw-scale-x: 66%;
 	--tw-scale-y: 66%;
 	transform: var(--tw-transform);
 }
 
-.c-site-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 80;
-	height: 100px;
-	width: 100%;
-	--tw-bg-opacity: 1;
-	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-	transition-duration: 200ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.c-site-header.is-top {
-	--tw-bg-opacity: 1;
-	background-color: rgba(234, 77, 95, var(--tw-bg-opacity));
-}
-.c-site-header.is-fixed {
-	--tw-bg-opacity: 1;
-	background-color: rgba(24, 170, 100, var(--tw-bg-opacity));
-}
-
-[modal=theme-base] {
+/* components
+// -------------------------------------------- */
+/* Modal (alpine)
+-------------------------------------------- */
+.c-modal {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -2370,13 +2177,13 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	left: 0;
 	z-index: 100;
 }
-[modal=theme-base] [modal-wrapper] {
+.c-modal__wrapper {
 	display: flex;
 	min-height: 100vh;
 	align-items: center;
 	justify-content: center;
 }
-[modal=theme-base] [modal-overlay] {
+.c-modal__overlay {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -2385,7 +2192,7 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	cursor: pointer;
 	background-color: rgba(0, 0, 0, 0.6);
 }
-[modal=theme-base] [modal-content] {
+.c-modal__content {
 	position: relative;
 	z-index: 100;
 	max-height: 80vh;
@@ -2397,11 +2204,11 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	padding: 25px;
 }
-[modal=theme-base] h2:focus {
+.c-modal h2:focus {
   border: 10px solid red;
 }
 
-[navmobile=theme-base] {
+.c-nav-mobile {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -2522,29 +2329,20 @@ https://github.com/tailwindlabs/tailwindcss-forms
 .absolute {
 	position: absolute;
 }
-.relative {
-	position: relative;
-}
-.inset-0 {
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
 .mt-4 {
 	margin-top: 20px;
-}
-.mt-2 {
-	margin-top: 10px;
-}
-.mt-8 {
-	margin-top: 40px;
 }
 .ml-auto {
 	margin-left: auto;
 }
 .mt-10 {
 	margin-top: 50px;
+}
+.mt-2 {
+	margin-top: 10px;
+}
+.mt-8 {
+	margin-top: 40px;
 }
 .mt-1 {
 	margin-top: 5px;
@@ -2573,9 +2371,6 @@ https://github.com/tailwindlabs/tailwindcss-forms
 .grid {
 	display: grid;
 }
-.h-full {
-	height: 100%;
-}
 .h-24 {
 	height: 120px;
 }
@@ -2596,9 +2391,6 @@ https://github.com/tailwindlabs/tailwindcss-forms
 }
 .w-100 {
 	width: 500px;
-}
-.max-w-2xl {
-	max-width: 42rem;
 }
 .max-w-100 {
 	max-width: 500px;
@@ -2639,20 +2431,12 @@ https://github.com/tailwindlabs/tailwindcss-forms
 .justify-end {
 	justify-content: flex-end;
 }
-.justify-center {
-	justify-content: center;
-}
 .gap-6 {
 	gap: 30px;
 }
 .gap-x-4 {
 	-moz-column-gap: 20px;
 	     column-gap: 20px;
-}
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-x-reverse: 0;
-	margin-right: calc(10px * var(--tw-space-x-reverse));
-	margin-left: calc(10px * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-y-3 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-y-reverse: 0;
@@ -2664,11 +2448,6 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	margin-top: calc(25px * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(25px * var(--tw-space-y-reverse));
 }
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-y-reverse: 0;
-	margin-top: calc(20px * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(20px * var(--tw-space-y-reverse));
-}
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(20px * var(--tw-space-x-reverse));
@@ -2679,26 +2458,8 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	margin-top: calc(50px * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(50px * var(--tw-space-y-reverse));
 }
-.overflow-y-auto {
-	overflow-y: auto;
-}
 .overflow-y-scroll {
 	overflow-y: scroll;
-}
-.border {
-	border-width: 1px;
-}
-.border-black {
-	--tw-border-opacity: 1;
-	border-color: rgba(0, 0, 0, var(--tw-border-opacity));
-}
-.bg-white {
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
-.bg-black {
-	--tw-bg-opacity: 1;
-	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 }
 .bg-blue-1 {
 	--tw-bg-opacity: 1;
@@ -2708,25 +2469,11 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	--tw-bg-opacity: 1;
 	background-color: rgba(24, 170, 100, var(--tw-bg-opacity));
 }
-.bg-opacity-50 {
-	--tw-bg-opacity: 0.5;
-}
-.p-8 {
-	padding: 40px;
-}
 .p-4 {
 	padding: 20px;
 }
 .p-2 {
 	padding: 10px;
-}
-.px-4 {
-	padding-left: 20px;
-	padding-right: 20px;
-}
-.py-2 {
-	padding-top: 10px;
-	padding-bottom: 10px;
 }
 .py-4 {
 	padding-top: 20px;
@@ -2737,9 +2484,6 @@ https://github.com/tailwindlabs/tailwindcss-forms
 }
 .text-lg {
 	font-size: 1.25rem;
-}
-.font-medium {
-	font-weight: 500;
 }
 .text-white {
 	--tw-text-opacity: 1;
@@ -2769,15 +2513,6 @@ https://github.com/tailwindlabs/tailwindcss-forms
 }
 .ease-out {
 	transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-.focus\:outline-none:focus {
-	outline: 2px solid transparent;
-	outline-offset: 2px;
-}
-.focus\:ring-4:focus {
-	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 @media (min-width: 768px) {
 

@@ -1,45 +1,6 @@
 "use strict";
 (self["webpackChunkmutation"] = self["webpackChunkmutation"] || []).push([["/scripts/main"],{
 
-/***/ "./assets/scripts/alpine/accordion.js":
-/*!********************************************!*\
-  !*** ./assets/scripts/alpine/accordion.js ***!
-  \********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-  return {
-    isOpen: initState,
-    init: function init() {
-      this.isOpen = initState;
-      this.updateAttributes();
-    },
-    toggle: function toggle() {
-      this.isOpen = !this.isOpen;
-      this.updateAttributes();
-    },
-    updateAttributes: function updateAttributes() {
-      var button = this.$refs.button;
-      var content = this.$refs.content;
-      button.setAttribute('aria-expanded', this.isOpen);
-      content.setAttribute('aria-hidden', !this.isOpen);
-
-      if (this.isOpen) {
-        button.classList.add('is-active');
-      } else {
-        button.classList.remove('is-active');
-      }
-    },
-    isVisible: function isVisible() {
-      return this.isOpen;
-    }
-  };
-});
-
-/***/ }),
-
 /***/ "./assets/scripts/alpine/modal.js":
 /*!****************************************!*\
   !*** ./assets/scripts/alpine/modal.js ***!
@@ -51,6 +12,7 @@ __webpack_require__.r(__webpack_exports__);
   return {
     isOpen: false,
     id: id,
+    elHtml: document.querySelector('html'),
     init: function init() {
       var _this = this;
 
@@ -59,12 +21,15 @@ __webpack_require__.r(__webpack_exports__);
           _this.isOpen = true;
 
           _this.$nextTick(function () {
+            _this.elHtml.classList.add('no-scroll');
+
             _this.$refs.modalTitle.focus();
           });
         }
       }, false);
     },
     close: function close() {
+      this.elHtml.classList.remove('no-scroll');
       this.isOpen = false;
     },
     isVisible: function isVisible() {
@@ -82,21 +47,49 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function () {
+/* harmony default export */ __webpack_exports__["default"] = (function (id) {
   return {
+    id: id,
     isOpen: false,
+    elTrigger: null,
+    cssClass: {
+      isActive: 'is-active'
+    },
     init: function init() {
       var _this = this;
 
+      this.elTrigger = document.querySelectorAll("[data-trigger-nav-mobile=\"".concat(this.id, "\"]"));
       document.addEventListener('navMobile:open', function (e) {
-        _this.isOpen = true;
+        _this.open();
       }, false);
+      document.addEventListener('navMobile:close', function (e) {
+        _this.close();
+      }, false);
+      var mobileMenuLinks = document.querySelectorAll('.c-mobile-menu-nav a');
+      mobileMenuLinks.forEach(function (element, index) {
+        element.addEventListener('click', function (e) {
+          document.dispatchEvent(new CustomEvent('navMobile:close', {
+            bubbles: true,
+            detail: {}
+          }));
+        });
+      });
     },
     close: function close() {
+      var _this2 = this;
+
       this.isOpen = false;
+      this.elTrigger.forEach(function (el) {
+        el.classList.remove(_this2.cssClass.isActive);
+      });
     },
-    isVisible: function isVisible() {
-      return this.isOpen;
+    open: function open() {
+      var _this3 = this;
+
+      this.isOpen = true;
+      this.elTrigger.forEach(function (el) {
+        el.classList.add(_this3.cssClass.isActive);
+      });
     }
   };
 });
@@ -262,33 +255,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
-/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./debug/index */ "./assets/scripts/debug/index.js");
-/* harmony import */ var _alpine_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./alpine/modal */ "./assets/scripts/alpine/modal.js");
-/* harmony import */ var _alpine_navMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./alpine/navMobile */ "./assets/scripts/alpine/navMobile.js");
-/* harmony import */ var _alpine_accordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./alpine/accordion */ "./assets/scripts/alpine/accordion.js");
+/* harmony import */ var _alpine_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./alpine/modal */ "./assets/scripts/alpine/modal.js");
+/* harmony import */ var _alpine_navMobile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./alpine/navMobile */ "./assets/scripts/alpine/navMobile.js");
+/* harmony import */ var _debug_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./debug/index */ "./assets/scripts/debug/index.js");
+/* harmony import */ var _modules_cursorCustom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/cursorCustom */ "./assets/scripts/modules/cursorCustom.js");
 /* eslint-disable import/no-extraneous-dependencies */
 // polyfill only stable `core-js` features - ES and web standards:
 
 
 
 
+ // import accordion from './alpine/accordion';
+
+
+
 /* Alpine
 -------------------------------------------- */
 
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data('modal', _alpine_modal__WEBPACK_IMPORTED_MODULE_3__["default"]);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data('navMobile', _alpine_navMobile__WEBPACK_IMPORTED_MODULE_4__["default"]); // Alpine.data('accordion', accordion);
 
-
-
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data('modal', _alpine_modal__WEBPACK_IMPORTED_MODULE_4__["default"]);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data('navMobile', _alpine_navMobile__WEBPACK_IMPORTED_MODULE_5__["default"]);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data('accordion', _alpine_accordion__WEBPACK_IMPORTED_MODULE_6__["default"]);
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].start();
 /* Custom javascript
 -------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', function () {
-  (0,_debug_index__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  (0,_debug_index__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  (0,_modules_cursorCustom__WEBPACK_IMPORTED_MODULE_6__["default"])();
 });
+
+/***/ }),
+
+/***/ "./assets/scripts/modules/cursorCustom.js":
+/*!************************************************!*\
+  !*** ./assets/scripts/modules/cursorCustom.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ cursorCustomInit; }
+/* harmony export */ });
+function cursorCustomInit() {
+  var links = document.querySelectorAll('a, button');
+  var elCustomCursor = document.querySelector('.js-custom-cursor');
+  console.log('elCustomCursor:', elCustomCursor);
+  elCustomCursor.setAttribute('data-module', 'custom-cursor');
+  document.body.appendChild(elCustomCursor);
+
+  if (elCustomCursor) {
+    document.addEventListener('mousemove', function (e) {
+      var x = e.clientX;
+      var y = e.clientY;
+      elCustomCursor.style.left = "".concat(x, "px");
+      elCustomCursor.style.top = "".concat(y, "px");
+    });
+    document.addEventListener('mousedown', function () {
+      elCustomCursor.classList.add('is-click');
+    });
+    document.addEventListener('mouseup', function () {
+      elCustomCursor.classList.remove('is-click');
+    });
+  }
+
+  if (links) {
+    links.forEach(function (item) {
+      item.addEventListener('mouseover', function () {
+        elCustomCursor.classList.add('is-hover');
+      });
+      item.addEventListener('mouseleave', function () {
+        elCustomCursor.classList.remove('is-hover');
+      });
+    });
+  }
+}
 
 /***/ }),
 

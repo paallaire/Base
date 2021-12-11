@@ -24,12 +24,10 @@ Contient les base du projet qui sont utilisé globlement.
 
 Exemple :
 - Web fonts
-- Pattern animations
-- Pattern transitions
-- Reset tag html
+- Animations
+- Transitions
+- Tag
 - etc..
-
-
 
 ### Objects
 

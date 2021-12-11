@@ -5,18 +5,18 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 import Alpine from 'alpinejs';
+import modal from './alpine/modal';
+import navMobile from './alpine/navMobile';
+// import accordion from './alpine/accordion';
+
 import debugInit from './debug/index';
+import cursorCustomInit from './modules/cursorCustom';
 
 /* Alpine
 -------------------------------------------- */
-
-import modal from './alpine/modal';
-import navMobile from './alpine/navMobile';
-import accordion from './alpine/accordion';
-
 Alpine.data('modal', modal);
 Alpine.data('navMobile', navMobile);
-Alpine.data('accordion', accordion);
+// Alpine.data('accordion', accordion);
 
 window.Alpine = Alpine;
 Alpine.start();
@@ -25,4 +25,5 @@ Alpine.start();
 -------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   debugInit();
+  cursorCustomInit();
 });
