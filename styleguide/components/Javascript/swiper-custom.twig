@@ -1,0 +1,31 @@
+<div class="sg-container-padding">
+
+  <div class="sg-title">Swiper custom</div>
+
+  <!-- Slider main container -->
+  {% for slider in 0..1 %}
+
+    <div class="sg-subtitle">{{ 'Slider #' ~ loop.index }}</div>
+
+    <div
+      class="swiper swiper-visible c-swiper-custom">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        {% for item in 0..10 %}
+          <div class="swiper-slide">
+            <img src="https://picsum.photos/400/600?random={{ loop.index }}" alt=""/>
+          </div>
+        {% endfor %}
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination-custom"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="flex w-20 justify-between mt-4">
+        <div class="swiper-button-prev-custom">Prev</div>
+        <div class="swiper-button-next-custom">Next</div>
+      </div>
+
+    </div>
+  {% endfor %}
+</div>

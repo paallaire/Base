@@ -582,6 +582,16 @@ video {
 	--tw-scale-y: 1;
 	--tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 	border-color: currentColor;
+	--tw-blur: var(--tw-empty,/*!*/ /*!*/);
+	--tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+	--tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+	--tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+	--tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+	--tw-invert: var(--tw-empty,/*!*/ /*!*/);
+	--tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+	--tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+	--tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+	--tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .form-input,.form-textarea,.form-select,.form-multiselect {
@@ -880,6 +890,15 @@ body {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	font-size: 2.5rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(78, 149, 255, var(--tw-text-opacity));
+}
+
+.sg-subtitle {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 2rem;
 	font-weight: 700;
 	--tw-text-opacity: 1;
 	color: rgba(78, 149, 255, var(--tw-text-opacity));
@@ -1995,6 +2014,48 @@ https://tailwindcss.com/docs/text-decoration-color tailwindcss v3
           text-decoration-color: #be123c;
 }
 
+/* link-jump
+-------------------------------------------- */
+.link-jump {
+	position: relative;
+	display: inline-flex;
+	cursor: pointer;
+	overflow: hidden;
+}
+.link-jump span {
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+	transition-duration: 200ms;
+	transition-timing-function: linear;
+}
+.link-jump:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  --tw-translate-y: 100%;
+  transform: var(--tw-transform);
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+.link-jump:hover span {
+	--tw-translate-y: -100%;
+	transform: var(--tw-transform);
+}
+.link-jump:hover:before {
+	--tw-translate-y: 0;
+	transform: var(--tw-transform);
+}
+
 /* surtitle
 -------------------------------------------- */
 .surtitle {
@@ -2222,6 +2283,167 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
+.c-accordion__header-button {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	--tw-bg-opacity: 1;
+	background-color: rgba(78, 149, 255, var(--tw-bg-opacity));
+	padding: 10px;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.c-accordion__header-icon {
+	margin-left: auto;
+	width: 7px;
+}
+.c-accordion__content {
+	--tw-bg-opacity: 1;
+	background-color: rgba(24, 170, 100, var(--tw-bg-opacity));
+	padding: 10px;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+/* base
+-------------------------------------------- */
+.swiper {
+	opacity: 0;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+	transition-duration: 100ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.swiper.swiper-initialized {
+	opacity: 1;
+}
+.swiper.swiper-visible {
+	overflow: visible !important;
+}
+
+/* swiper-default
+-------------------------------------------- */
+/* swiper-custom
+-------------------------------------------- */
+.c-swiper-custom {
+	overflow: visible !important;
+}
+.c-swiper-custom .swiper-button-prev-custom, .c-swiper-custom .swiper-button-next-custom {
+	--tw-bg-opacity: 1;
+	background-color: rgba(24, 170, 100, var(--tw-bg-opacity));
+	padding: 5px;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+	transition-duration: 100ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.c-swiper-custom .swiper-button-prev-custom:hover, .c-swiper-custom .swiper-button-next-custom:hover {
+	--tw-text-opacity: 1;
+	color: rgba(78, 149, 255, var(--tw-text-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(78, 149, 255, var(--tw-text-opacity));
+}
+.c-swiper-custom .swiper-button-prev-custom.swiper-button-disabled, .c-swiper-custom .swiper-button-next-custom.swiper-button-disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.c-marquee {
+  --marquee-width: 100vw;
+  --offset: 1vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+  --item-font-size: 10vw;
+  width: var(--marquee-width);
+  overflow: hidden;
+  pointer-events: none;
+}
+.c-marquee__inner {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  -webkit-animation: marquee 10s linear infinite;
+          animation: marquee 10s linear infinite;
+}
+.c-marquee span {
+  text-align: center;
+  white-space: nowrap;
+  font-size: var(--item-font-size);
+  padding: 0 1vw;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+/* inputfile
+-------------------------------------------- */
+.c-inputfile {
+	display: inline-block;
+}
+.c-inputfile__input {
+	display: none;
+}
+.c-inputfile__label {
+	display: flex;
+	cursor: pointer;
+	align-items: center;
+}
+.c-inputfile__icon {
+	margin-right: 20px;
+	width: 100px;
+	border-radius: 9999px;
+	--tw-bg-opacity: 1;
+	background-color: rgba(78, 149, 255, var(--tw-bg-opacity));
+	padding: 10px;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.c-inputfile__meta-name {
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+.c-inputfile__meta-size {
+	font-size: 1rem;
+}
+
+.c-inputfile--hero {
+	width: 400px;
+	border-radius: 20px;
+	background-color: rgba(234, 77, 95, 0.6);
+	padding: 20px;
+}
+.c-inputfile--hero .c-inputfile__icon {
+	--tw-bg-opacity: 1;
+	background-color: rgba(234, 77, 95, var(--tw-bg-opacity));
+}
+
 /* vendors
 // -------------------------------------------- */
 [x-cloak] {
@@ -2332,9 +2554,6 @@ https://github.com/tailwindlabs/tailwindcss-forms
 .mt-4 {
 	margin-top: 20px;
 }
-.ml-auto {
-	margin-left: auto;
-}
 .mt-10 {
 	margin-top: 50px;
 }
@@ -2352,6 +2571,9 @@ https://github.com/tailwindlabs/tailwindcss-forms
 }
 .mt-20 {
 	margin-top: 100px;
+}
+.ml-auto {
+	margin-left: auto;
 }
 .block {
 	display: block;
@@ -2374,20 +2596,17 @@ https://github.com/tailwindlabs/tailwindcss-forms
 .h-24 {
 	height: 120px;
 }
-.h-\[3000px\] {
-	height: 3000px;
-}
 .max-h-100 {
 	max-height: 500px;
 }
 .w-1\/12 {
 	width: 8.333333%;
 }
+.w-20 {
+	width: 100px;
+}
 .w-full {
 	width: 100%;
-}
-.w-7px {
-	width: 7px;
 }
 .w-100 {
 	width: 500px;
@@ -2403,17 +2622,20 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	--tw-translate-y: 0;
 	transform: var(--tw-transform);
 }
-.-translate-x-full {
-	--tw-translate-x: -100%;
-	transform: var(--tw-transform);
-}
 .translate-x-0 {
 	--tw-translate-x: 0;
+	transform: var(--tw-transform);
+}
+.-translate-x-full {
+	--tw-translate-x: -100%;
 	transform: var(--tw-transform);
 }
 .scale-95 {
 	--tw-scale-x: .95;
 	--tw-scale-y: .95;
+	transform: var(--tw-transform);
+}
+.transform {
 	transform: var(--tw-transform);
 }
 .resize {
@@ -2428,8 +2650,8 @@ https://github.com/tailwindlabs/tailwindcss-forms
 .items-center {
 	align-items: center;
 }
-.justify-end {
-	justify-content: flex-end;
+.justify-between {
+	justify-content: space-between;
 }
 .gap-6 {
 	gap: 30px;
@@ -2437,16 +2659,6 @@ https://github.com/tailwindlabs/tailwindcss-forms
 .gap-x-4 {
 	-moz-column-gap: 20px;
 	     column-gap: 20px;
-}
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-y-reverse: 0;
-	margin-top: calc(15px * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(15px * var(--tw-space-y-reverse));
-}
-.space-y-5 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-y-reverse: 0;
-	margin-top: calc(25px * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(25px * var(--tw-space-y-reverse));
 }
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
@@ -2457,6 +2669,16 @@ https://github.com/tailwindlabs/tailwindcss-forms
 	--tw-space-y-reverse: 0;
 	margin-top: calc(50px * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(50px * var(--tw-space-y-reverse));
+}
+.space-y-5 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-y-reverse: 0;
+	margin-top: calc(25px * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(25px * var(--tw-space-y-reverse));
+}
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-y-reverse: 0;
+	margin-top: calc(15px * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(15px * var(--tw-space-y-reverse));
 }
 .overflow-y-scroll {
 	overflow-y: scroll;
@@ -2471,9 +2693,6 @@ https://github.com/tailwindlabs/tailwindcss-forms
 }
 .p-4 {
 	padding: 20px;
-}
-.p-2 {
-	padding: 10px;
 }
 .py-4 {
 	padding-top: 20px;
@@ -2497,6 +2716,10 @@ https://github.com/tailwindlabs/tailwindcss-forms
 }
 .opacity-100 {
 	opacity: 1;
+}
+.blur {
+	--tw-blur: blur(8px);
+	filter: var(--tw-filter);
 }
 .transition {
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;

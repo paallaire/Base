@@ -1,6 +1,10 @@
 # A faire
 Façon de faire, exemple : grid use gap
 
+# laravel mix
+
+- [ ] Source map js
+
 # CSS
 
 - [ ] Gestion fonts-size/scaling : clamp, rem update root font-size breakpoints ?
@@ -24,13 +28,15 @@ Façon de faire, exemple : grid use gap
 
 ## Components
 
+- [ ] Marquee https://github.com/Nam-Hai/Reproduction-1/blob/main/src/app/app.component.scss
+
 # Alpine
 
-- [ ] Modal avec x-teleport
-- [ ] NavMoible avec ou sans x-teleport
+- [x] Modal
+- [x] NavMoible avec ou sans x-teleport
 - [ ] tab
 - [ ] Sticky nav ( header )
-- [ ] Accordeon
+- [x] Accordeon
 - [ ] nav sticky
 
 # JavaScript
@@ -42,7 +48,7 @@ Façon de faire, exemple : grid use gap
 - [ ] listbox
 - [ ] pop over
 - [ ] custom upload file ( refaire )
-- [ ] marquee ( tag marque vs js vs css) 
+- [x] marquee ( tag marque vs js vs **css**) 
 - [ ] scroll spy
 - [ ] tooltip
 - [ ] dropdown

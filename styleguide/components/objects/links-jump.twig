@@ -1,0 +1,17 @@
+{% set styles = ['link-jump'] %}
+
+<div class="sg-container-padding">
+
+  <div class="sg-title">Link jump</div>
+
+  <ul class="space-x-4 flex">
+    {% for style in styles %}
+      <li>
+        <a href="" class="link-jump" data-text="{{ style }}">
+          <span>{{ style }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>

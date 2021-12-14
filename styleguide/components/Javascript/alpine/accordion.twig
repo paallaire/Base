@@ -1,20 +1,22 @@
-<div class="p-4">
+<div class="sg-container-padding">
+
+  <div class="sg-title">Accordion</div>
 
   <ul class="max-w-100 space-y-5">
 
     {% for item in 0..5 %}
       <li>
-        <div x-data="accordion()">
-          <button id="accordion-control-{{ loop.index }}" aria-controls="content-{{ loop.index }}" class="bg-blue-1 flex items-center w-full p-2 text-white" x-on:click="toggle()" x-ref="button">
-            <span>{{ 'item #' ~ loop.index }}</span>
-            <svg class="w-7px ml-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8.263 14.743">
+        <div class="c-accordion" x-data="accordion()">
+          <button class="c-accordion__header-button" id="accordion-control-{{ loop.index }}" aria-controls="content-{{ loop.index }}" x-on:click="toggle()" x-ref="button">
+            <span class="c-accordion__header-title">{{ 'item #' ~ loop.index }}</span>
+            <svg class="c-accordion__header-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8.263 14.743">
               <g data-name="Groupe 2331" stroke-width="2">
                 <path data-name="Tracé 1265" d="M.928.372a15.048 15.048 0 0 0 2.8 4.381 12.793 12.793 0 0 0 4.2 2.619"></path>
                 <path data-name="Tracé 1266" d="M.928 14.372a15.048 15.048 0 0 1 2.8-4.381 12.793 12.793 0 0 1 4.2-2.619"></path>
               </g>
             </svg>
           </button>
-          <div id="content-{{ loop.index }}" x-show="isVisible" x-ref="content" class="bg-green-1 p-2 text-white">
+          <div class="c-accordion__content" id="content-{{ loop.index }}" x-ref="content" x-show="isVisible">
 
             <div class="prose">
               <p>Apples are a fine fruit often associated with good health, and fewer doctor's appointments.</p>

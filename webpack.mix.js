@@ -6,6 +6,7 @@ const publicPath = 'dist';
 
 mix.setPublicPath(publicPath)
   .js(`${srcPath}/scripts/main.js`, 'scripts')
+  .sourceMaps()
   .sass(`${srcPath}/styles/main.scss`, 'styles')
   // .copyDirectory(`${srcPath}/fonts`, `${publicPath}/fonts`)
   // .copyDirectory(`${srcPath}/icons`, `${publicPath}/icons`)
@@ -33,10 +34,7 @@ mix.setPublicPath(publicPath)
 //   mix.sourceMaps().browserSync({
 //     // proxy: process.env.BASE_URL,
 //     server: {
-//       baseDir: 'public',
-//       routes: {
-//         '/dist': 'dist',
-//       },
+//       baseDir: 'dist',
 //     },
 //     ghostMode: {
 //       clicks: false,
