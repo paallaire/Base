@@ -1,0 +1,51 @@
+<div class="sg-container-padding">
+
+  <h1 class="sg-title">Accessibility</h1>
+  <div class="sg-note">
+    <a href="https://a11y-101.com/development/aria-label">https://a11y-101.com/development/aria-label</a>
+  </div>
+
+  <h2 class="sg-subtitle">Class "sr-only"</h2>
+
+  <button class="btn btn--primary">
+    &#9658;
+    <span class="sr-only">Description...</span>
+  </button>
+
+  <h2 class="sg-subtitle">aria-label</h2>
+
+  <button class="btn btn--primary" aria-label="Description action">&#9658;
+  </button>
+
+  <h2 class="sg-subtitle">aria-labelledby</h2>
+
+  <div id="radio_label">My radio label</div>
+
+  <ul role="radiogroup" aria-labelledby="radio_label">
+    <li role="radio">Élément №1</li>
+    <li role="radio">Élément №2</li>
+    <li role="radio">Élément №3</li>
+  </ul>
+
+  <h2 class="sg-subtitle">aria-describedby</h2>
+
+  <button aria-label="Fermer" aria-describedby="descriptionClose">X</button>
+
+  <div id="descriptionClose">
+    La fermeture de cette fenêtre entraînera la perte des informations saisies et vous renverra vers la page principale.
+  </div>
+
+  <h2 class="sg-subtitle">Button State</h2>
+
+  <button class="btn btn--primary" aria-label="Favorite" aria-pressed="false">❤</button>
+
+  <h2 class="sg-subtitle">Skip "content"</h2>
+
+  <a class="sr-only focus:not-sr-only" href="#main">Skip to content</a>
+
+  <section id="main" class="mt-[400px] bg-blue-1 p-4 text-white">
+    Main content
+  </section>
+
+
+</div>

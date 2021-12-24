@@ -1,6 +1,7 @@
 /* html
 -------------------------------------------- */
 html {
+  @extend .default-scrollbar;
   scroll-behavior: smooth;
 
   &.no-scroll {

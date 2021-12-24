@@ -1,0 +1,28 @@
+<div class="sg-container-padding">
+
+  <div class="sg-title">Reveal (AOS costum)</div>
+
+
+  {% for item in 0..5 %}
+
+    <section data-reveal-seciton class="my-20">
+
+      <div class="overflow-hidden mb-10">
+        <div class="h1 max-w-[1000px]" data-reveal="reveal-up" data-reveal-duration="1500" data-reveal-easing="reveal">Lorem ipsum dolor sit, amet consect</div>
+      </div>
+
+      <div class="wysiwyg max-w-100 mt-6" data-reveal="fade" data-reveal-delay="800" data-reveal-duration="300" data-reveal-easing="reveal">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi consectetur, voluptatem ab exercitationem illum a maxime delectus placeat voluptatum reiciendis accusantium eligendi! Atque, saepe? Amet nobis nulla beatae natus architecto?</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi consectetur, voluptatem ab exercitationem illum a maxime delectus placeat voluptatum reiciendis accusantium eligendi! Atque, saepe? Amet nobis nulla beatae natus architecto?</p>
+      </div>
+
+      <div class="flex gap-4 flex-wrap mt-6">
+        {% for item in 0..10 %}
+          <img class="example example-{{ loop.index }}" data-reveal="fade-up" data-reveal-delay="{{ 800 + (loop.index * 50) }}" data-reveal-duration="600" data-reveal-easing="reveal" src="https://source.unsplash.com/g92mLkCVRmM/400x400/?random={{ loop.index }}" alt=""/>
+        {% endfor %}
+      </div>
+
+    </section>
+  {% endfor %}
+
+</div>

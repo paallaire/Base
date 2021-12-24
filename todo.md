@@ -7,7 +7,7 @@ Façon de faire, exemple : grid use gap
 
 # CSS
 
-- [ ] Gestion fonts-size/scaling : clamp, rem update root font-size breakpoints ?
+- [ ] Gestion fonts-size/scaling : clamp, rem update root font-size breakpoints ? ( faire un demo/test )
 - [x] Container : padding px + width fluid
 - [x] ratio iframe ( aspect-ratio )
 - [ ] Plugins placeholdeer content ? https://github.com/javisperez/tailwindcontentplaceholder
@@ -24,11 +24,11 @@ Façon de faire, exemple : grid use gap
 - [x] Surtitle
 - [x] Form
 - [x] tag-badge
-- [ ] icons (svg)
+- [x] icons (svg) icon moon vs gulp vs webpack
 
 ## Components
 
-- [ ] Marquee https://github.com/Nam-Hai/Reproduction-1/blob/main/src/app/app.component.scss
+- [x] Marquee https://github.com/Nam-Hai/Reproduction-1/blob/main/src/app/app.component.scss
 
 # Alpine
 
@@ -37,31 +37,27 @@ Façon de faire, exemple : grid use gap
 - [ ] tab
 - [ ] Sticky nav ( header )
 - [x] Accordeon
-- [ ] nav sticky
+- [x] cookies message
 
 # JavaScript
 
-- [ ] Slider
+- [x] Slider
 - [x] Custom cursor
 - [x] Gestion mobile ( css var de tw )
 - [ ] Animation on Scroll ( gsap scrollTrigger vs AOS + js event)
-- [ ] listbox
-- [ ] pop over
-- [ ] custom upload file ( refaire )
+- [x] custom upload file 
 - [x] marquee ( tag marque vs js vs **css**) 
 - [ ] scroll spy
 - [ ] tooltip
-- [ ] dropdown
+- [ ] dropdown / pop over / listbox
 - [ ] lazy loading
-
 - [x] Debug media query
 - [x] Debug grid
-- [ ] 
 
 # Maybe
 
 - [ ] loader
-- [ ] icon svg
+- [x] icon svg
 
   
 

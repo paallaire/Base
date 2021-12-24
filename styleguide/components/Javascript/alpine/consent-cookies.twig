@@ -1,0 +1,18 @@
+<div class="sg-container-padding">
+
+  <div class="sg-title">Consent cookies</div>
+  <p>Cookies name : consent_cookies</p>
+
+  <div class="c-consent-cookies" x-data="consentCookies" x-cloak x-show="isOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-out duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+    <div class="c-consent-cookies__container">
+      <div class="c-consent-cookies__message">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga qui, iusto quidem consequatur ea corrupti numquam quod placeat minima libero dolores nam deserunt dolor dolorem quo nulla nisi sed vitae!</p>
+      </div>
+      <div class="c-consent-cookies__actions">
+        <button id="c-consent-cookies__accept" x-ref="btnAllow" x-on:click.prevent="onAllow()">Allow All</button>
+        <button id="c-consent-cookies__disable" x-ref="btnDisable" x-on:click.prevent="onDisable()">Disable All</button>
+      </div>
+    </div>
+  </div>
+
+</div>

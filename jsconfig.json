@@ -1,9 +1,0 @@
-{
-    "compilerOptions": {
-      "baseUrl": "./",
-      "paths": {
-        "@modules/*": ["assets/scripts/modules/*"],
-        "@debug/*": ["assets/scripts/debug/*"],
-      }
-    }
-  }

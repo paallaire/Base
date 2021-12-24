@@ -1,0 +1,39 @@
+<div class="sg-container-padding">
+
+  <section class="section-clip-path">
+    <div class="sg-title">Clip-path</div>
+
+    <div class="flex gap-4 flex-wrap">
+      {% for item in 0..10 %}
+        <img class="example example-{{ loop.index }}" src="https://source.unsplash.com/g92mLkCVRmM/400x400/?random={{ loop.index }}" alt=""/>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-transition-clip-path mt-8">
+    <div class="sg-title">Transition</div>
+
+    <div class="flex gap-4 flex-wrap">
+      {% for item in 0..5 %}
+        <div class="example example-{{ loop.index }}">
+          <img class="example--image" src="https://source.unsplash.com/g92mLkCVRmM/400x400/?random={{ loop.index }}" alt=""/>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-button-clip-path mt-8">
+    <div class="sg-title">Button</div>
+
+    <button class="button">
+      <span>Sign up now</span>
+    </button>
+  </section>
+
+</div>
+
+<svg class="svg">
+  <clipPath id="triangle" clippathunits="objectBoundingBox">
+    <path d="M0.05,0.05 h1 v1"></path>
+  </clipPath>
+</svg>

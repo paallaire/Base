@@ -6,9 +6,10 @@
 
 /* base
 // -------------------------------------------- */
-@import "./base/scrollbar";
+// @import "./base/scrollbar";
 @import "./base/fonts";
 @import "./base/tags";
+@import "../icomoon/style.css";
 
 @import "./base/transitions";
 @import "./base/animations";
@@ -31,6 +32,7 @@
 @import "./objects/badge";
 @import "./objects/form";
 @import "./objects/custom-cursor";
+@import "./objects/scrollbar";
 
 /* components
 // -------------------------------------------- */
@@ -46,11 +48,20 @@
 @import "./components/swiper";
 @import "./components/marquee";
 @import "./components/inputfile";
+@import "./components/consent-cookies";
+
+/* playground
+// -------------------------------------------- */
+@import "./playground/clip-path";
 
 /* vendors
 // -------------------------------------------- */
-@import "./vendors/alpine";
 @import "~hamburgers/_sass/hamburgers/hamburgers";
+@import "~aos/dist/aos.css";
+
+@import "./vendors/alpine";
+@import "./vendors/aos";
+@import "./vendors/reveal/aos.scss";
 
 /* utilities
 // -------------------------------------------- */

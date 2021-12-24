@@ -184,12 +184,17 @@ module.exports = {
         },
       },
       animation: {
-        fadeIn: 'fadeIn 300ms ease forwards',
-        fadeOut: 'fadeOut 300ms ease forwards',
+        fadeIn: 'fadeIn 200ms ease forwards',
+        fadeOut: 'fadeOut 200ms ease forwards',
       },
       transitionProperty: {
         height: 'height',
         maxHeight: 'max-height',
+      },
+      transitionDuration: {
+        fast: '200ms',
+        medium: '400ms',
+        slow: '600ms',
       },
       typography: {
         DEFAULT: {
