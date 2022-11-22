@@ -24,7 +24,7 @@
         "@frctl/twig": "^1.2.2",
         "babel-eslint": "^10.1.0",
         "browser-sync-webpack-plugin": "^2.2.2",
-        "browser-sync": "^2.26.13",
+        "browser-sync": "^2.27.10",
         "copy-webpack-plugin": "^6.2.1",
         "cross-env": "^7.0.2",
         "eslint-config-airbnb-base": "^14.2.0",
