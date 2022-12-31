@@ -1,16 +1,11 @@
 module.exports = {
   plugins: {
+    'postcss-import': {},
     'tailwindcss/nesting': {},
-    tailwindcss: {},
+    //tailwindcss: { config: './tailwind.config.dev.js' },
+    tailwindcss: { config: process.env.NODE_ENV === 'production' ? './tailwind.config.dev.js' : './tailwind.config.dev.js' },
     autoprefixer: {},
-    'postcss-pxtorem': {
-      rootValue: 16,
-      unitPrecision: 5,
-      propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
-      selectorBlackList: [],
-      replace: true,
-      mediaQuery: false,
-      minPixelValue: 0
-    }
-  }
-};
+  },
+}
+
+

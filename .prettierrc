@@ -5,5 +5,10 @@
   "singleQuote": true,
   "trailingComma": "none",
   "printWidth": 120,
-  "htmlWhitespaceSensitivity": "ignore"
+  "htmlWhitespaceSensitivity": "ignore",
+  "plugins": [
+    "prettier-plugin-twig-melody",
+    "prettier-plugin-tailwindcss"
+  ],
+  "pluginSearchDirs": false
 }

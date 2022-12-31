@@ -1,23 +1,24 @@
-.env
-.env.*
-!.env.example
-.idea
-.vscode
-.vagrant
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
 node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-
-/storage/*
-!/storage/rebrand
-!/storage/runtime
-!/storage/.gitkeep
-/vendor
-/web/content
-/web/cpresources
-/web/dist
-/web/web.config
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

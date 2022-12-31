@@ -8,4 +8,3 @@
 
 https://tailwindcss.com/docs
 
-JIT is enabled by default: https://tailwindcss.com/docs/just-in-time-mode
