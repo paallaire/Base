@@ -1,0 +1,7 @@
+/public
+/dist
+/node_modules
+/bin
+tailwind.config.js
+tailwind.config.dev.js
+tailwind.config.produ.js
